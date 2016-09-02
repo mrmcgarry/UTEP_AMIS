@@ -1,0 +1,262 @@
+/* entire viewable page (i.e., the body */
+body
+{
+	background-color: #a9a8aa; /* a light gray */
+}
+
+main, footer{
+	position: relative;
+	top: 10em;
+}
+
+/* Page Header */
+#pagehdr
+{
+	color: #464646; /* a dark gray */
+	font-family: Verdana;
+	font-size: 2vw;
+	text-align: center;
+}
+
+header{
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	top: 0px;
+	right:0px;
+	left: 0px;
+	background-color: gray;
+}
+
+/* Navigation (NAV) bar */
+
+nav{
+	background-color: gray;
+	width: inherit;
+	height: 50px;
+}
+
+nav li{
+	background-color: rgb(150,150,150);
+	width: 11.5em;
+	height: inherit;
+	display: inline-block;
+	line-height: 50px;
+	border-bottom: 2px solid rgb(0,0,0);
+	
+	-webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+	
+	font-size: 1.4vw;
+	cursor: pointer;
+}
+
+nav a.active{
+	color: #91010a;
+}
+
+nav ul{
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+nav li li{
+	font-size: 0.9em;
+	border-bottom: none;
+}
+
+nav ul li{
+	display: inline-block;
+}
+
+nav li ul{
+	display: none;
+	position: absolute;
+	width: inherit;
+	color: rgb(200,200,200);
+}
+
+nav li:hover .drop{
+	display: block;
+}
+
+nav li li:hover .drop2{
+	display: inline-block;
+}
+
+.drop li{
+	display: block;
+	background-color: rgb(100,100,100);
+	width: 100%;
+	margin-bottom: 1px;
+}
+
+.drop2 li{
+	display: block;
+	background-color: rgb(50,50,50);
+	width: 100%;
+}
+
+nav a{
+	color: rgb(255,255,255);
+	text-decoration: none;
+	display: block;
+	transition: linear .5s background-color;
+}
+
+nav a:hover
+{
+	/* on hover, change the text color, and background color; make font bold */
+	font-weight: bold;
+	color: #002a70; /* a dark blue */
+	/*background-color: #59575c; /* a medium gray */
+	background-color: rgb(100,100,100); /* Same as the nav bar */
+}
+
+/* active NAV bar link */
+.active
+{
+	color: #91010a; /* a dark red for text color */
+}
+
+/* Project introduction */
+#projectintro
+{
+	font-family: Georgia;
+	font-size: 14pt;
+}
+
+/* defined term */
+dt
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Form group legend */
+legend
+{
+	font-weight: bold;
+}
+
+.projectstatus
+{
+	font-family: Georgia;
+	font-size: 14pt;
+}
+
+/* measurement task ID labels */
+.idLabel
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+#submitTask, #submitAnalysis
+{
+	display: inline-block;
+	margin: 20px;
+	font-family: Verdana;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+#topTalkersBtn, #amisDataBtn
+{
+	font-family: Verdana;
+	font-size: 14pt;	
+}
+
+input[type="text"]:invalid
+{
+	border: 1px solid red;
+}
+
+input[type="text"]:valid
+{
+	border: 1px solid green;
+}
+
+/* Text flow data display */
+.flowData
+{
+	font-family: Verdana;
+	font-size: 16pt;	
+}
+
+/*
+** This sections deals with visualization
+*/
+/* For Vis.js */
+.dataLabel
+{
+	text-anchor: middle;
+}
+/* For D3.js */
+.xaxis g.tick text
+{
+	fill: rgba(0,0,0,0.1);
+	transition: linear .2s fill;
+}
+
+text
+{
+	font-family: sans-serif;
+}
+
+.label
+{
+	font-size: 19px;
+}
+
+rect
+{
+	fill-opacity: 0.5;
+	stroke-width: 2;
+	stroke-linecap: butt;
+	stroke-linejoin: miter;
+}
+
+path.domain
+{
+	stroke: rgba(0,0,0,1);
+	stroke-width: 2;
+	fill: none;
+	shape-rendering: crisp-edges;
+}
+
+.tick line
+{
+    stroke: rgba(100,100,100,0.8);
+	stroke-width: 1;
+	shape-rendering: crisp-edges;
+}
+
+/*
+** Leaflet map height
+*/
+#mapContainer { height: 700px; }
+
+/*
+** Elements that should be not displayed by default
+*/
+#exploreSelect, #exploreSelectLabel, #predictSelect, #predictSelectLabel, #flowID
+{
+	display: none;
+}
+
+footer
+{
+	display: inline-block;
+	margin-top: 40px;
+	width: 96%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #383738; /* a very dark gray */
+	font-family: Arial;
+	text-align: center;
+	verical-align: middle;
+}

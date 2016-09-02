@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+</head>
+
+<body onload="setCurrentYear(),initPerfMonPage()">
+
+ 	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html" class = "active">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul></li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul></li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul></li>
+					</ul>
+				</li>
+				<li><a href="iplookup.html">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+ 
+
+	<main>
+		<h2>Define a Performance Monitoring Task</h2>
+		<form action="javascript:submitPerfMonTask();" method="get">
+		<fieldset>
+			<legend>User credentials</legend>
+			<label>Username:<input type="text" name="username"/></label>
+			<label>Password:<input type="password" name="userpass"/></label>
+		</fieldset>	
+		<fieldset>
+			<legend>Exchange points</legend>
+			<label>LEARN/CUDI - El Paso, TX<input type="checkbox" name="exchange"/></label>
+			<label>AMPATH/SOL - Miami, FL<input type="checkbox" name="exchange"/></label><br/>
+			<label for="perfMonType">Performance monitoring granularity/type:</label>
+			<select id="perfMonitorType" name="perfMonType" onchange="perfMonitorTypeChange()">
+				<option value="pktValidation">Packet Validation</option>
+				<option value="netFlow">Netflow</option>
+				<option value="pktTrace">Packet Trace</option>
+				<option value="trafficMatrix">Traffic Matrix</option>
+				<option value="linkGranularity">Link granularity</option>
+				<option value="flowGranularity">Flow granularity</option>
+			</select><br/>
+		</fieldset>
+		<fieldset id="pktValidationFields">
+			<legend>Packet validation</legend>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStart" type="text" name="pktValidationStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStop" type="text" name="pktValidationStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+		</fieldset>
+		<fieldset id="netFlowFields">
+			<legend>Netflow</legend>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStart" type="text" name="netFlowStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStop" type="text" name="netFlowStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label for="netFlowFieldNumber">Field number(s):</label>
+			<select id="netFlowFieldNumber" name="netFlowFieldNumber" multiple="multiple" size="6">
+				<option value="1">version</option>
+				<option value="2">flow_count</option>
+				<option value="3">sys_time</option>
+				<option value="4">unix_secs</option>
+				<option value="5">unix_nsecs</option>
+				<option value="6">flow#(OVS)</option>
+				<option value="7">engine_type</option>
+				<option value="8">engine_id</option>
+				<option value="9">samp_rate</option>
+				<option value="10">flow#(API)</option>
+				<option value="11">srcaddr</option>
+				<option value="12">dstaddr</option>
+				<option value="13">nexthop</option>
+				<option value="14">inputif</option>
+				<option value="15">outputif</option>
+				<option value="16">dPkts</option>
+				<option value="17">dOctets</option>
+				<option value="18">first</option>
+				<option value="19">last</option>
+				<option value="20">srcport</option>
+				<option value="21">dstport</option>
+				<option value="22">tcp_flags</option>
+				<option value="23">prot</option>
+				<option value="24">tos</option>
+				<option value="25">src_as</option>
+				<option value="26">dst_as</option>
+				<option value="27">src_mask</option>
+				<option value="28">dst_mask</option>
+			</select><br/>
+		</fieldset>
+		<fieldset id="pktTraceFields">
+			<legend>Packet trace</legend>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStart" type="text" name="pktTraceStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStop" type="text" name="pktTraceStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Source IP Address:<input id="pktTraceSrcIP" type="text" name="pktTraceSrcIP" value="192.168.1.1" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
+			<label>Destination IP Address:<input id="pktTraceDstIP" type="text" name="pktTraceDstIP" value="192.168.1.2" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
+			<label>IP Protocol Number [<span id="ip_proto_name"></span>]:<input id="pktTraceIPProto" type="text" name="pktTraceIPProto" value="6" pattern="\d{1,3}" onchange="pktTraceIPProtoChange()"/></label><br/>
+			<label>Source Port Number [<span id="src_port_name"></span>]:<input id="pktTraceSrcPort" type="text" name="pktTraceSrcPort" value="22" pattern="\d{1,6}" onchange="pktTraceSrcPortChange()"/></label><br/>
+			<label>Destination Port Number [<span id="dst_port_name"></span>]:<input id="pktTraceDstPort" type="text" name="pktTraceDstPort" value="22" pattern="\d{1,6}" onchange="pktTraceDstPortChange()"/></label><br/>
+		</fieldset>
+		<fieldset id="linkMonFields">
+			<legend>Link granularity monitoring</legend>
+			<label class="idLabel">Link monitor ID:<input type="text" name="linkID"/></label><br/>
+			<label for="linkMonType">Link monitoring type:</label>
+			<select id="linkMonitorType" name="linkMonType" onchange="linkMonitorTypeChange()">
+				<option value="bitrateMon">Bitrate</option>
+				<option value="statusMon">In service status</option>
+			</select><br/>
+			<label>Activate Performance Trigger<input type="checkbox" id="linkPerfTriggerAct" name="linkPerfTrigAct" onchange="linkPerfTriggerActivate()"/></label><br/>
+			<label class="linkPerfTrigger" for="linkMon">Link performance trigger:</label>
+			<select id="linkMonitor" class="linkPerfTrigger" name="linkMon" onchange="linkMonitorChange()">
+				<option value="rises">Bitrate rises above</option>
+				<option value="falls">Bitrate falls below</option>
+				<option value="linkIn">Link in service</option>
+				<option value="linkOut">Link out of service</option>
+			</select>
+			<label class="linkPerfTrigger">Trigger threshold:<input type="text" name="perfTriggerThresh"/></label><br/>			
+			<label class="linkPerfTrigger" for="triggerAction">Trigger action:</label>
+			<select id="triggerActionDef" class="linkPerfTrigger" name="triggerAction" onchange="triggerActionChange()">
+				<option value="logPerfTrigger">Log</option>
+				<option value="alarmPerfTrigger">Alarm</option>
+			</select>
+			<label class="linkPerfTrigger">Email address for trigger alarm:<input type="text" name="alarmEmail"/></label>
+		</fieldset>
+		<fieldset id="trafficMatrixFields">
+			<legend>Traffic matrix</legend>
+			<label class="idLabel">Src/Dest Pair ID:<input type="text" name="srcdestID"/></label><br/>
+			<label for="srcdestCriteria">Src/Dest Pair Criteria</label>
+			<select id="srcdestCrit" name="srcdestCriteria" onchange="srcdestCriteriaChange()">
+				<option value="ipaddr">IP Address</option>
+				<option value="macaddr">Enet MAC Address</option>
+				<option value="mplslabel">MPLS label</option>
+			</select>
+			<label id="srcValue" for="srcVal">Src IP Address:</label><input type="text" name="srcVal"/>
+			<label id="destValue" for="destVal">Dest IP Address:</label><input type="text" name="destVal"/><br/>
+			<label>Bitrate sample period:<input type="text" name="samplePeriod"/></label>
+		</fieldset>
+		<fieldset id="flowMonFields">
+			<legend>Flow granularity monitoring</legend>
+			<label class="idLabel">Flow ID:<input type="text" name="flowID"/></label><br/>
+			<label for="flowCriteria">Flow Criteria</label>
+			<select id="flowCrit" name="flowCriteria" onchange="flowCriteriaChange()">
+				<option value="srctcpip">Src IP Address/Port Num</option>
+				<option value="desttcpip">Dest IP Address/Port Num</option>
+				<option value="default">???</option>
+			</select>
+			<label id="flowValue1">Src IP Address:</label><input type="text" name="flowVal1"/>
+			<label id="flowValue2">Src Port Number:</label><input type="text" name="flowVal2"/><br/>
+			<label for="flowStart">Flow Start Trigger</label>
+			<select name="flowStart">
+				<option value="tcpsyn">TCP SYN</option>
+				<option value="nextpkt">Next packet</option>
+			</select>
+			<label for="flowStop">Flow Stop Trigger</label>
+			<select name="flowStop">
+				<option value="tcpfin">TCP FIN</option>
+				<option value="numpkt">Number of packets</option>
+			</select><br/>
+			<label>Burst monitoring<input type="checkbox" name="burstmon"/></label>
+			<label>Packet train tolerance (msec)<input type="text" name="traintolerance"/></label>
+			
+		</fieldset>
+			<br/><input id="submitTask" type="submit" name="submitTask" value="Submit task"/>
+		</form>
+
+		<p class="linkPerfTrigger"><strong>NOTE:</strong> Performance trigger reports will either be stored in an accumulating log (accessible using the Monitor ID) or be sent via email as an alarm.</p>
+		<p id="displayMsg"></p>
+		
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

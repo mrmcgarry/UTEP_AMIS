@@ -1,0 +1,105 @@
+/* entire viewable page (i.e., the body */
+body
+{
+	background-color: #a9a8aa; /* a light gray */
+}
+
+/* Page Header */
+#pagehdr
+{
+	color: #464646; /* a dark gray */
+	font-family: Verdana;
+	font-size: 24pt;
+	text-align: center;
+}
+
+/* Navigation (NAV) bar */
+nav a
+{
+	/* boxing of NAV links */
+	display: inline-block;
+	width: 18%;
+	height: 50px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: #383738; /* a very dark gray */
+	background-color: #b5b5b6; /* a light gray */
+	/* text properties */
+	color: #383738; /* a very dark gray */
+	font-family: Arial;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+nav a:hover
+{
+	/* on hover, change the text color, and background color; make font bold */
+	font-weight: bold;
+	color: #002a70; /* a dark blue */
+	background-color: #59575c; /* a medium gray */
+}
+
+/* active NAV bar link */
+.active
+{
+	color: #91010a; /* a dark red for text color */
+}
+
+/* Project introduction */
+#projectintro
+{
+	font-family: Georgia;
+	font-size: 14pt;
+}
+
+/* defined term */
+dt
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+/* Form group legend */
+legend
+{
+	font-weight: bold;
+}
+
+/* measurement task ID labels */
+.idLabel
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+#submitTask, #submitAnalysis
+{
+	display: inline-block;
+	margin: 20px;
+	font-family: Verdana;
+	font-size: 16pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*
+** Elements that should be not displayed by default
+*/
+#exploreSelect, #exploreSelectLabel, #predictSelect, #predictSelectLabel, #flowID
+{
+	display: none;
+}
+
+footer
+{
+	display: inline-block;
+	margin-top: 40px;
+	width: 96%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #383738; /* a very dark gray */
+	font-family: Arial;
+	text-align: center;
+	verical-align: middle;
+}

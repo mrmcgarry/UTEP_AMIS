@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<link rel="stylesheet" href="css/leaflet.css" />
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="https://d3js.org/queue.v1.min.js" type="text/JavaScript"></script>
+	<script src="js/leaflet.js"></script>
+</head>
+
+<body onload="setCurrentYear()">
+
+	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="geoviz.html">Geo Visualizations</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul></li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul></li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul></li>
+					</ul></li>
+				<li><a href="iplookup.html" class = "active">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+
+	<main>
+		<h1>IP Address Lookup</h1>
+			<fieldset id="ipsearch">
+				<legend>Search IP Address</legend>
+				<label>IPv4 Address (###.###.###.###): <input id="searchtermdot" type="text" name="searchTerm" placeholder="255.255.255.255" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"/></label>
+    	    	<input type="submit" onclick="getIPData();" value="Obtain IP data" /><br/>
+			</fieldset>
+
+		<p id="displayMsg"></p>
+					
+		<div id="resultContainer"></div>
+
+		<div id="mapContainer"></div>
+		
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

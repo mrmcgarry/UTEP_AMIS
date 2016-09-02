@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/simple_statistics.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/simpleviz.js"></script>
+</head>
+
+<body onload="setCurrentYear(),loadExistingTopTalkerData()">
+
+	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html" class = "active">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul>
+						</li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul>
+						</li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="iplookup.html">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+
+	<main>
+		<h1>View Top Talkers</h1>
+		<!-- Form to retrieve top talker data -->
+		<fieldset>
+		<legend>Retrieve Data</legend>
+		<form action="javascript:getTopTalkers();" method="get">
+			<label for="topTalkerCount">Top talkers: </label>
+			<select id="topTalkerCountID" name="topTalkerCount" onchange="topTalkerCountChange()">
+				<option value="top10">Top 10</option>
+				<option value="top20">Top 20</option>
+				<option value="top100">Top 100</option>
+			</select>
+			<input id="topTalkersBtn" type="submit" name="getData" value="Get Top Talkers"/>
+		</form>
+		<form action="javascript:getAMISData();" method="get">
+			<input id="amisDataBtn" type="submit" name="amisData" value="Get AMIS Data"/>
+		</form>
+		<p id="displayMsg"></p>
+		</fieldset>
+		
+		<h2>Data Visualization</h2>
+		<!-- Visualization selector -->		
+		<form action="javascript:void(0);" method="get">
+			<fieldset>
+				<legend>Data Visualization</legend>
+				<label for="dataViz">Visualization Selection:</label>
+				<select id="vizSelect" name="dataViz" onchange="vizChange()">
+					<option value="bytehist"># of bytes histogram</option>
+					<option value="pkthist"># of packets histogram</option>
+					<option value="srcporthist">Source Port Service Name Histogram</option>
+					<option value="dstporthist">Destination Port Service Name Histogram</option>
+					<option value="protocolhist">Protocol Name Histogram</option>
+				</select>
+				<p id="datavizMsg"></p>
+			</fieldset>
+		</form>
+		
+		<!-- Container for D3.js visualization -->
+		<div class="vizContainer"></div>
+
+		<h2>Data Records</h2>
+		<!-- Text flow record data highlighter selection -->
+		<form action="javascript:void(0);" method="get">
+			<fieldset>
+				<legend>Data Highlighters</legend>
+				<label for="dataHighlighter1">Highlighter 1:</label>
+				<select id="dataHighlight1" name="dataHighlighter1" onchange="dataHighlighter1Change()">
+					<option value="nohighlight">No highlighting</option>
+					<option value="srcip">Src IP Address</option>
+					<option value="dstip">Dest IP Address</option>
+					<option value="srcport">Src Port Number</option>
+					<option value="dstport">Dest Port Number</option>
+				</select>
+			</fieldset>
+		</form>
+		
+		<!-- Text flow record data highlighter selection -->
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+		<p class="flowData"></p>
+
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<script src="js/amis.js"></script>
+</head>
+
+<body onload="setCurrentYear()">
+
+	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="geoviz.html">Geo Visualizations</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul>
+						</li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul>
+						</li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="iplookup.html">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html" class = "active">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+
+	<main>
+		<h1>Software Defined Networking</h1>
+		<h2>The big idea</h2>
+		<p>Communication network functionality is partitioned into:
+		<br/>
+		<dl>
+			<dt>Data plane:</dt> <dd>the mechanics of transmitting packets through transmission channels and 
+			forwarding packets through packet switches</dd>
+			<dt>Control plane:</dt> <dd>the collection of topology information, and using the topology information 
+			along with packet delivery policies (e.g., routing, isolation) to determine how to forward 
+			packets through packet switches</dd>
+		</dl>
+		SDN is a standard set of abstraction layers for the control plane network functionality. 
+		Specifically, abstraction layers for collecting topology information and setting forwarding 
+		rules inside packet switches.
+		<br/>
+		The data plane executes in the packet switches.
+		<br/>
+		The control plane executes on computing devices anywhere in the network, this is no longer 
+		necessarily distributed throughout the packet switches in the network</p>
+		
+		<h2>Video lectures/interviews</h2>
+		<ul>
+			<li><a href="https://youtu.be/WabdXYzCAOU">Software Defined Networking at the Crossroads</a> 
+			by Scott Shenker</li>
+			<li><a href="https://youtu.be/c9-K5O_qYgA">How SDN will Shape Networking</a> by Nick McKeown</li>
+			<li><a href="https://youtu.be/abXezfJsqso">Interview with Nick McKeown</a> by Nick Feamster</li>
+		
+		</ul>
+		
+		<h2>Manuscripts</h2>
+		<ul class="manuscripts">
+			<li>Feamster, Nick, Jennifer Rexford, and Ellen Zegura. <a href="http://dl.acm.org/citation.cfm?id=2602219">
+			The road to SDN: an intellectual history of programmable networks."</a> ACM SIGCOMM Computer 
+			Communication Review 44.2 (2014): 87-98.</li>
+
+			<li>Kim, Hyojoon, and Nick Feamster. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6461195&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6461195">
+			"Improving network management with software defined networking."</a> 
+			Communications Magazine, IEEE 51.2 (2013): 114-119.</li>
+
+			<li>McKeown, Nick, et al. <a href="http://dl.acm.org/citation.cfm?id=1355746">"OpenFlow: enabling 
+			innovation in campus networks."</a> ACM SIGCOMM Computer Communication Review 38.2 (2008): 69-74.</li>
+
+			<li>Kreutz, Diego, et al. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6994333&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6994333">
+			"Software-defined networking: A comprehensive survey."</a> Proceedings of the IEEE 103.1 
+			(2015): 14-76.</li>
+		
+		</ul>
+		
+		<h1>Network Measurement</h1>
+		<h2>The big idea</h2>
+		Network measurement can provide useful insights for:
+		<ul>
+			<li>network engineers to architect network changes to meet requirements</li>
+			<li>security analysts to identify security breaches</li>
+		</ul>
+		
+		<h2>Video lectures/interviews</h2>
+		<ul>
+			<li><a href="https://www.youtube.com/watch?v=1m--SfBDXGo">There is more to Internet measurement 
+			than meets the eye</a> by Walter Willinger (mostly about inferring the topology of the Internet)</li>
+		</ul>
+		
+		<h2>Manuscripts</h2>
+		<ul class="manuscripts">
+			<li>Floyd, Sally, and Vern Paxson. <a href="http://dl.acm.org/citation.cfm?id=504642">
+			"Difficulties in simulating the Internet."</a> IEEE/ACM Transactions on Networking (TON) 
+			9.4 (2001): 392-403.</li>
+			<li>Williamson, Carey. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=968834&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D968834">
+			"Internet traffic measurement."</a> Internet Computing, IEEE 5.6 (2001): 70-74.</li>
+			<li>Lowekamp, Bruce B., et al. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1261700&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1261700">
+			"Enabling network measurement portability through a hierarchy of characteristics." </a>
+			Grid Computing, 2003. Proceedings. Fourth International Workshop on. IEEE, 2003.</li>
+			<li>IEEE Internet Computing Special Issue on Internet Measurement
+				<ul>
+					<li>Editorial: Brownlee, Nevil, and K. C. Claffy. <a href="http://www.computer.org/csdl/mags/ic/2004/05/w5030.pdf">
+					"Internet measurement."</a> Internet Computing, IEEE 8.5 (2004): 30-33.</li>
+					<li>Ribeiro, Vinay J., Rudolf H. Riedi, and Richard G. Baraniuk. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1336741&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1336741">
+					"Locating available bandwidth bottlenecks."</a> Internet Computing, IEEE 8.5 (2004): 34-41.</li>
+					<li>Rajvaidya, Prashant, and Kevin C. Almeroth. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1336742&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1336742">
+					"Multicast routing instabilities."</a> Internet Computing, IEEE 8.5 (2004): 42-49.</li>
+					<li>Barford, Paul, and Joel Sommers. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1336743&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1336743">
+					"Comparing probe-and router-based packet-loss measurement."</a> Internet Computing, IEEE 8.5 (2004): 50-56.</li>
+					<li>Karagiannis, Thomas, Mart Molle, and Michalis Faloutsos. <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=1336744&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1336744">
+					"Long-range dependence ten years of Internet traffic modeling."</a> Internet Computing, IEEE 8.5 (2004): 57-64.</li>
+				</ul>
+			</li>
+			<li>Song, Han Hee, Lili Qiu, and Yin Zhang. <a href="http://dl.acm.org/citation.cfm?id=1140293">
+			"NetQuest: a flexible framework for large-scale network measurement." </a>
+			ACM SIGMETRICS Performance Evaluation Review. Vol. 34. No. 1. ACM, 2006.</li>
+			<li>Yuan, Lihua, Chen-Nee Chuah, and Prasant Mohapatra. 
+			<a href="http://dl.acm.org/citation.cfm?id=1959451">"ProgME: towards programmable network measurement."</a>
+			IEEE/ACM Transactions on Networking (TON) 19.1 (2011): 115-128.</li>
+			<li>Cisco Systems
+			<a href="http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html">Introduction to Cisco IOS NetFlow</a>
+			</li>
+			<li><a href="http://www.caida.org/home/">Center for Applied Internet Data Analysis (CAIDA)</a>
+			<li><a href="http://www.measurementlab.net">Measuement Lab (M-Lab)</a></li>
+			<li><a href="http://gloriad.org/gloriaddrupal/index.php">Global Ring Network for Advanced Applications Development (GLORIAD)</a></li>
+		</ul>
+		
+		<h2>Useful links</h2>
+		<ul class="links">
+			<li><a href="http://www.iana.org/numbers">Internet number assignment</a></li>
+		</ul>
+		
+
+		<h1>Data Science</h1>
+		<h2>The big idea</h2>
+		
+		<h2>Video lectures/interviews</h2>
+		<ul>
+			<li>None yet.</li>
+		</ul>
+		
+		<h2>Manuscripts</h2>
+		<ul class="manuscripts">
+			<li>John Tukey, "Exploratory Data Analysis", Addison-Wesley, 1977</li>
+			<li>Edward Tufte, "The Visual Display of Quantitative Information", Graphics Press, 2001</li>
+			<li>Tom Barker, "Pro Data Visualization Using R and JavaScript", APress, 2013</li>
+		</ul>
+
+		<h1>Network Processors</h1>
+		<h2>The big idea</h2>
+		
+		<h2>Video lectures/interviews</h2>
+		<ul>
+			<li>None yet.</li>
+		</ul>
+		
+		<h2>Manuscripts</h2>
+		<ul class="manuscripts">
+			<li><a href="http://www-asim.lip6.fr/~genius/UnderstandingNPs.pdf.gz">
+			"Understanding Network Processors"</a> by Niraj Shah, UC Berkeley Masters Thesis 2001
+			<li><a href="http://www.amazon.com/Network-Processors-Architecture-Programming-Implementation/dp/0123708915/ref=sr_1_1?ie=UTF8&qid=1455129599&sr=8-1&keywords=network+processors">
+			"Network Processors: Architecture, Programming, and Implementation"</a> by Ran Giladi</li>
+			<li><a href="http://www.amazon.com/Network-Processor-Design-Practices-Architecture-ebook/dp/B001F7BD3K/ref=sr_1_9?ie=UTF8&qid=1455129745&sr=8-9&keywords=network+processors">
+			"Network Processor Design: Issues and Practices"</a> by Mark Franklin, Patrick Crowley, Haldun Hadimioglu and Peter Onufryk</li>	
+			<li>Bosshart, Pat, et al. <a href="http://dl.acm.org/citation.cfm?id=2656890">
+			"P4: Programming protocol-independent packet processors."</a> ACM SIGCOMM Computer Communication 
+			Review 44.3 (2014): 87-95.</li>
+			<li><a href="http://p4.org/spec/">P4 Programming Language Specification</a></li>
+		</ul>
+		
+		
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

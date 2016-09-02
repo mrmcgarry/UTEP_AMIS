@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+</head>
+
+<body onload="setCurrentYear()">
+
+ 	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html" class = "active">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="geoviz.html">Geo Visualizations</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul></li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul></li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul></li>
+					</ul>
+				</li>
+				<li><a href="iplookup.html">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+ 
+
+	<main>
+		<h2>Define a Fault Detection Task</h2>
+		<form action="javascript:void(0);" method="get">
+		<fieldset>
+			<legend>User credentials</legend>
+			<label>Username:<input type="text" name="username"/></label>
+			<label>Password:<input type="password" name="userpass"/></label>
+		</fieldset>	
+		<fieldset>
+			<legend>Exchange points</legend>
+			<label>LEARN/CUDI - El Paso, TX<input type="checkbox" name="exchange"/></label>
+			<label>AMPATH/SOL - Miami, FL<input type="checkbox" name="exchange"/></label>
+		</fieldset>
+		<fieldset>
+			<legend>Fault selection/action</legend>
+			<label class="idLabel">Fault Detection ID:<input type="text" name="faultID"/></label><br/>
+			<label for="faultType">Fault type:</label>
+			<select id="faultTypeDef" name="faultType" onchange="faultTypeChange()">
+				<option value="storm">Broadcast storm</option>
+				<option value="linkoos">Link out of service</option>
+				<option value="highber">High Bit Error Rate (BER)</option>
+			</select><br/>
+			<label for="faultAction">Fault action:</label>
+			<select id="faultActionDef" name="faultAction" onchange="faultActionChange()">
+				<option value="logFault">Log</option>
+				<option value="alarmFault">Alarm</option>
+			</select>
+			<label>Email address for event alarm:<input type="text" name="alarmEmail"/></label>
+		</fieldset>
+
+			<input id="submitTask" type="submit" name="submitTask" value="Submit task"/>
+		</form>
+		
+		<p><strong>NOTE:</strong> Fault detection reports will either be stored in an accumulating log (accessible using the Fault Detection ID) or be sent via email as an alarm.</p>
+		
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

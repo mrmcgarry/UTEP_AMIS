@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Advanced Measurement Instrument and Services (AMIS)</title>
+	<link rel="stylesheet" href="css/amis.css">
+	<script src="js/amis.js"></script>
+</head>
+
+<body onload="setCurrentYear()">
+
+	<header>
+		<h1 id="pagehdr">Advanced Measurement Instrument and Services (AMIS)</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">About</a></li>
+				<li><a href="define.html">Define Measurement Task</a>
+					<ul class="drop">
+						<li><a href="perfmon.html">Performance Monitoring</a></li>
+						<li><a href="faultdet.html">Fault Detection</a></li>
+					</ul>
+				</li>
+				<li><a href="viewdata.html" class = "active">View Measurement Data</a>
+					<ul class="drop">
+						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="toptalkers.html">Top Talkers</a></li>
+						<li>Descriptive Analysis
+							<ul class="drop2">
+								<li>Traffic Matrix</li>
+								<li>Flow Statistics</li>
+								<li>Burst Statistics</li>
+							</ul>
+						</li>
+						<li>Exploratory Analysis
+							<ul class="drop2">
+								<li>Flow Classification</li>
+								<li>Network Anomaly Detection</li>
+								<li>Network Event Detection</li>
+							</ul>
+						</li>
+						<li>Predictive Analysis
+							<ul class="drop2">
+								<li>Congestion Prediction</li>
+								<li>Network Anomaly Prediction</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="iplookup.html">IP Address Lookup</a></li>
+				<li><a href="people.html">Project Team</a></li>
+				<li><a href="training.html">Training Materials</a></li>
+			</ul>
+		</nav>		
+	</header>
+
+	<main>
+		<form action="javascript:void(0);" method="get">
+		<fieldset>
+			<legend>User credentials</legend>
+			<label>Username:<input type="text" name="username"/></label>
+			<label>Password:<input type="password" name="userpass"/></label>
+		</fieldset>	
+			<label for="analysisType">Analysis Type:</label>
+			<select id="analysisTypeVal" name="analysisType" onchange="analysisTypeChange()">
+				<option value="descriptive">Descriptive Analysis</option>
+				<option value="exploratory">Exploratory Analysis</option>
+				<option value="predictive">Predictive Analysis</option>				
+			</select><br/>
+			
+			<!-- Descriptive Analysis -->
+			<label id="descrSelectLabel" for="descriptiveSelect">Descriptive Analysis Type:</label>
+			<select id="descrSelect" name="descriptiveSelect" onchange="descAnalysisChange()">
+				<option value="trafficmatrix">Traffic Matrix</option>
+				<option value="flowstats">Flow Statistics</option>
+				<option value="burststats">Burst Statistics</option>				
+			</select>
+			<label id="srcDestPairID">Src/Dest Pair ID:<input type="text"/></label>
+			<label id="flowID">Flow ID:<input type="text"/></label>
+			
+			<!-- Exploratory Analysis -->
+			<label id="exploreSelectLabel" for="exploratorySelect">Exploratory Analysis Type:</label>
+			<select id="exploreSelect" name="exploratorySelect">
+				<option value="flowclass">Flow Classification</option>
+				<option value="anamoly">Network Anamoly Detection</option>
+				<option value="netevent">Network Event Detection</option>
+			</select>
+			
+			<!-- Predictive Analysis -->
+			<label id="predictSelectLabel" for="descriptiveSelect">Predictive Analysis Type:</label>
+			<select id="predictSelect" name="predictiveSelect">
+				<option value="congestion">Congestion Prediction</option>
+				<option value="anamolypredict">Network Anamoly Prediction</option>
+			</select>
+			
+			<br/>
+			<input id="submitAnalysis" type="submit" name="submitAnalysis" value="Submit analysis request"/>
+		</form>
+		<hr/>
+		<p>We will be developing data visualization tools using D3.js 
+		<img src="images/d3js_logo.png" alt="D3.js logo" width="100"/> and the R statistical
+		programming language <img src="images/r_logo.png" alt="R language logo" width="100"/>.</p>
+	</main>
+
+	<footer>
+		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
+	</footer>
+
+</body>
+
+</html>

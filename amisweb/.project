@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>amisweb</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.wst.jsdt.core.javascriptValidator</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>define.html</name>
+			<type>1</type>
+			<location>/Users/mmcgarry/Documents/Research/SDN/amisweb/define.html</location>
+		</link>
+		<link>
+			<name>people.html</name>
+			<type>1</type>
+			<location>/Users/mmcgarry/Documents/Research/SDN/amisweb/people.html</location>
+		</link>
+		<link>
+			<name>training.html</name>
+			<type>1</type>
+			<location>/Users/mmcgarry/Documents/Research/SDN/amisweb/training.html</location>
+		</link>
+		<link>
+			<name>viewdata.html</name>
+			<type>1</type>
+			<location>/Users/mmcgarry/Documents/Research/SDN/amisweb/viewdata.html</location>
+		</link>
+	</linkedResources>
+</projectDescription>
