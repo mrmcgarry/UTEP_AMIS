@@ -6,14 +6,6 @@
 	<title>Advanced Measurement Instrument and Services (AMIS)</title>
 	<link rel="stylesheet" href="css/amis.css">
 	<link rel="stylesheet" href="css/leaflet.css" />
-	<script src="js/amis.js"></script>
-	<script src="js/jquery-2.2.2.min.js"></script>
-	<script src="js/simple_statistics.min.js"></script>
-	<script src="js/moment.min.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/simpleviz.js"></script>
-	<script src="js/leaflet.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body onload="setCurrentYear(),loadExistingTopTalkerData()">
@@ -92,6 +84,8 @@
 			<p id="datavizMsg"></p>
 			<!-- Container for visualization -->
 			<div id="mapContainer"></div>
+			<br/>
+			<div id= "vizContainer" class="vizContainer"></div>
 		</fieldset>
 		
 		<fieldset>
@@ -105,7 +99,23 @@
 		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
 		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
 	</footer>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://d3js.org/queue.v1.min.js" type="text/JavaScript"></script>
+	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- <script src="http://http://bbecquet.github.io/Leaflet.PolylineOffset/leaflet.polylineoffset.js"></script> -->
+	<script src="js/leaflet.polylineoffset.js"></script> <!-- Leaflet plugin for polyline offsets -->
+	<!--<script src="js/leaflet.polylineDecorator.js"></script>  Leaflet plugin for polyline decorations HUGE PERFORMANCE ISSUES-->
+	<script src="js/MovingMarker.js"></script> <!-- Leaflet plugin for animated markers -->
+	
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/simple_statistics.min.js"></script>
+	<script src="js/moment.min.js"></script>
+	
+	<script src="js/simpleviz.js"></script>
+	<script src="js/trafficMatrixMap.js"></script>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
 
 </html>
