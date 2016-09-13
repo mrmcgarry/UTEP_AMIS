@@ -188,6 +188,37 @@ input[type="text"]:valid
 }
 
 /*
+** Elements that should be not displayed by default
+*/
+#exploreSelect, #exploreSelectLabel, #predictSelect, #predictSelectLabel, #flowID
+{
+	display: none;
+}
+
+footer
+{
+	display: inline-block;
+	margin-top: 40px;
+	width: 96%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #383738; /* a very dark gray */
+	font-family: Arial;
+	text-align: center;
+	verical-align: middle;
+}
+
+/*~~~~~~~~~~~~~ Next Section ~~~~~~~~~~~~~*/
+
+main, footer{
+	position: relative;
+	top: 8em;
+}
+
+main p{
+	margin: 0% 3% 0% 3%;
+}
+/*
 ** This sections deals with visualization
 */
 /* For Vis.js */
@@ -235,28 +266,39 @@ path.domain
 	shape-rendering: crisp-edges;
 }
 
-/*
-** Leaflet map height
-*/
-#mapContainer { height: 700px; }
-
-/*
-** Elements that should be not displayed by default
-*/
-#exploreSelect, #exploreSelectLabel, #predictSelect, #predictSelectLabel, #flowID
+#labelCont
 {
-	display: none;
+	position: absolute;
+	height: 50px;
+	width: 100px;
+	
+	border-style: ridge;
+	background-color: rgba(25,25,25,0.8);
+	color: black;
+	font-size: 13px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+	-o-border-radius: 5px 5px 5px 5px;
+	
+	pointer-events: none;
 }
 
-footer
+#mapContainer
 {
-	display: inline-block;
-	margin-top: 40px;
-	width: 96%;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #383738; /* a very dark gray */
-	font-family: Arial;
-	text-align: center;
-	verical-align: middle;
+	height: 500px;
+}
+
+.grid
+{
+	cursor: pointer;
+}
+
+.mlabel
+{
+	pointer-events: none;
+}
+
+.leaflet-interactive
+{
+	transition: linear .2s stroke-opacity;
 }
