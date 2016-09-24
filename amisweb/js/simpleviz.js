@@ -66,7 +66,7 @@ function plotHistogram( barPadding, xLabel, yLabel, data, bins ) {
 		.attr("class", "label")
 		.text(xLabel);
 		
-	var	yAxis = d3.svg.axis().scale(yScale).orient( "left" ),
+	var	yAxis = d3.svg.axis().scale(yScale).tickFormat(d3.format(".2s")).orient( "left" ),
 	
 		yAxisLabel = yAxG.append("text")
 		.style("text-anchor", "middle")
@@ -181,7 +181,7 @@ function plotHistogramRaw( barPadding, xLabel, yLabel, datax, datay ) {
 	
 	function orderData(dx,dy) {
 		if (dx.length != dy.length){
-			alert('plotHistogramRaw did not execute because X data and Y data are of different lengths!')
+			alert('plotHistogramRaw did not execute correctly because X data and Y data are of different lengths!')
 			return;
 		}
 		
@@ -238,7 +238,7 @@ function plotHistogramRaw( barPadding, xLabel, yLabel, datax, datay ) {
 		.attr("class", "label")
 		.text(xLabel);
 		
-	var	yAxis = d3.svg.axis().scale(yScale).orient( "left" ),
+	var	yAxis = d3.svg.axis().scale(yScale).tickFormat(d3.format(".2s")).orient( "left" ),
 	
 		yAxisLabel = yAxG.append("text")
 		.style("text-anchor", "middle")
@@ -345,6 +345,196 @@ function plotHistogramRaw( barPadding, xLabel, yLabel, datax, datay ) {
 	});
 	////////////////////// RENDER GRID ///////////////////////
 	renderGrid( innerWidth, 0 );	// renders the grid, but only draws horizontal lines
+}
+
+function plotHistogramZoom( barPadding, xLabel, yLabel, datax, datay ) {
+	
+	d3.select("#vizContainer svg").remove();
+	
+	function orderData(dx,dy) {
+		if (dx.length != dy.length){
+			alert('plotHistogramRaw did not execute correctly because X data and Y data are of different lengths!')
+			return;
+		}
+		
+		result = [];
+		for (var i=0;i<dx.length;i++){
+			if(dy[i])
+				result.push({x: dx[i], y: dy[i]});
+		}
+		return result;
+	}
+	
+	data = orderData(datax, datay);
+	//console.log(data);
+	
+	////////////////////////// SETUP /////////////////////////
+	var margin = { top: 100, bottom: 100, left: 100, right: 100};
+	
+	var innerWidth  = window.innerWidth -  (margin.left + margin.right),
+		innerHeight = window.innerHeight - (margin.top + margin.bottom);
+		
+	var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding),
+		yScale = d3.scale.linear().range([innerHeight, 0]),
+		colourScale = d3.scale.category20();	
+		
+	var zoom = d3.behavior.zoom()
+		//.x(xScale)
+		//.y(yScale)
+		.scaleExtent([1, 10])
+		.on("zoom", zoomed);
+	
+	var svg = d3.select("div.vizContainer").append("svg") // change the argument in the "select" method to append the graph somewhere specific in the HTML. Use CSS selectors.
+				.attr("width" , window.innerWidth )
+				.attr("height", window.innerHeight)
+				.append("g")
+				.call(zoom);
+				
+	svg.append("rect")
+		.attr("width", innerWidth)
+		.attr("height", innerHeight)
+		.attr("fill", "rgba(100,100,100,0.4)")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.attr("class", "backgroundColor");
+
+	/* AUTOSCROLLS TO VIZCONTAINER */
+	autoScrollTo( '#vizContainer', 200 );
+	
+	var g = svg.append("g")
+			   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+	var xAxG = g.append("g")
+				.attr("transform", "translate(0, " + innerHeight + ")")
+				.attr("class", "xaxis"),
+		yAxG = g.append("g")
+				.attr("transform", "translate(0, 0)")
+				.attr("class", "yaxis");
+	
+	
+		
+	var xAxis = d3.svg.axis().scale(xScale).orient("bottom"),						
+	
+		xAxisLabel = xAxG.append("text")
+		.style("text-anchor", "middle")
+		.attr("transform", "translate(" + (innerWidth / 2) + "," + 48 + ")")
+		.attr("class", "label")
+		.text(xLabel);
+		
+	var	yAxis = d3.svg.axis().scale(yScale).tickFormat(d3.format(".2s")).orient( "left" ),
+	
+		yAxisLabel = yAxG.append("text")
+		.style("text-anchor", "middle")
+		.attr("transform", "translate(-" + 60 + "," + (innerHeight / 2) + ") rotate(-90)")
+		.attr("class", "label")
+		.text(yLabel);
+	
+	var invisibleBars = svg.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.attr("class", "invisiBars");
+	
+	//////////////////// RENDER HISTOGRAM ////////////////////
+	xScale.domain(       data.map( function (d){ return d.x; })); // "array".map will compute the function for every element and what gets returned is put into a new array
+	yScale.domain([0, d3.max(data, function (d){ return d.y; })]);
+
+	xAxG.call(xAxis);
+	yAxG.call(yAxis);
+	
+	/* Bind */
+	var bars = g.selectAll("rect").data(data),
+		invisibars = invisibleBars.selectAll("rect").data(data);
+		
+	/* Enter */
+	bars.enter().append("rect")
+		.attr("fill",  function (d){ return colourScale(d.x); })
+		.attr("stroke", function (d){ return colourScale(d.x); })
+		.attr("class", "bars")
+		.attr("alt", function(d) { return d.y; });
+	
+	invisibars.enter().append("rect")
+		.attr("width", xScale.rangeBand()) // uses info from xScale's domain and range band to compute how wide each bar should be
+		.attr("fill",  "rgba(0,0,0,0)" )
+		.attr("class", "areas");
+	/* Update */
+	bars
+	.attr("x",      function (d){ return               xScale(d.x); })
+	.attr("y", 		function (d){ return 			   innerHeight;     })
+	.attr("height", 												0    )
+	.transition()
+	.duration(100)
+	.attr("width", "0")
+	.delay(function(d,i) {
+		return i * 100;
+	})
+	.attr("width", xScale.rangeBand()) // uses info from xScale's domain and range band to compute how wide each bar should be
+	.attr("y",      function (d){ return               yScale(d.y); })
+	.attr("height", function (d){ return innerHeight - yScale(d.y); });
+	
+	invisibars
+	.attr("x",      function (d){ return               xScale(d.x); })
+	.attr("y",      function (d){ return               				 0; })
+	.attr("height", function (d){ return 				   innerHeight; });
+	/* Exit */
+	bars.exit().remove();
+	
+	invisibars.exit().remove();
+	
+	//////////////////// MAKE INTERACTIVE ///////////////////
+	$('.xaxis g.tick text').each(function(index){
+		$(this).on('myCustomEvent1', function(e, i){
+			//console.log(e);
+			$('.xaxis g.tick text').eq(i).css({
+				"fill": "rgba(0,0,0,1)"
+			});
+		});
+		$(this).on('myCustomEvent2', function(e, i){
+			//console.log(e);
+			$('.xaxis g.tick text').eq(i).css({
+				"fill":"rgba(0,0,0,0.1)"
+			});
+		});
+	});
+	
+	$('rect.areas').each(function(index){
+		//console.log( index + ": " + $( this ) );
+		$(this).on('mousemove', function(e){
+			$('#labelCont').css({
+				left: $('.xaxis g.tick line').eq(index).position().left,
+				top: e.pageY-125
+			});
+		});
+			
+		$(this).on('mouseover', index, function(){
+			$('.xaxis g.tick text').trigger('myCustomEvent1', [index]);
+			var labelText = $('.xaxis g.tick text').eq(index).text(),
+				yVal = $('rect.bars').eq(index).attr("alt"),
+				barColour = $('rect.bars').eq(index).attr("fill"),
+				
+				labelGroup = d3.select("#vizContainer").append("div")
+				.style({
+						"border-color": barColour,
+						"color": barColour 
+					})
+				.attr("id", "labelCont")
+				.append("p").html("<b>" + "X: " + "</b>" + labelText + "</br>" + "<b>" + "Y: " + "</b>" + yVal);
+		});
+		
+		$(this).on('mouseout', index, function(){
+			$('.xaxis g.tick text').trigger('myCustomEvent2', [index]);
+			d3.select("#labelCont").remove(); 	
+		});
+		
+		//if(!+$('rect.bars').eq(index).attr('height')) console.log(index+": "+"empty rectangle");
+	});
+	////////////////////// RENDER GRID ///////////////////////
+	renderGrid( innerWidth, 0 );	// renders the grid, but only draws horizontal lines
+	
+	function zoomed () {
+		//g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+		xAxG.call(xAxis);
+		yAxG.call(yAxis);
+		svg.select("rect.bars").attr("width", xScale.rangeBand());
+		svg.select("rect.areas").attr("width", xScale.rangeBand());
+	};
 }
 
 function autoScrollTo ( destination, animDuration ){

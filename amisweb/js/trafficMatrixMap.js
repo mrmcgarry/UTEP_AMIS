@@ -29,16 +29,19 @@ queue()	// Will load the following instructions until after the page has loaded
 	
 	var jason = file2;	// The second file is the actual data
 	
-	var section = "continentMatrixByte",	// The section of the data that will be represented on the map
+	/* var section = "continentMatrixByte",	// The section of the data that will be represented on the map
 		sectionLabel = "continentLbl",		// The label data
 		coordinates = continentCoordData,
 		
 		traffic = buildHash (jason, section, sectionLabel, coordinates); // Builds the data matrix as an array of objects that will then be represented on the map
+ */	
+	var section = "asMatrixByte",	// The section of the data that will be represented on the map
+		sectionLabel = "asnumOrgname",		// The label data
 	
-	//	traffic = buildHash (jason,section,sectionLabel);
+		traffic = buildHash (jason,section,sectionLabel);
 	
 	mymap = renderMap('mapContainer',0,0,2);	// Render the map at lat: 0, long: 0 and zoom level: 2
-	drawTrafficPaths (traffic, mymap, { weightRange: [3, 20], diameterRange: [3, 1000000] });
+	drawTrafficPaths (traffic, mymap, { weightRange: [3, 20], diameterRange: [3, 10000] });
 
 	//drawMatrix ('#matrixcontainer',traffic );
 	
@@ -61,6 +64,10 @@ function buildHash ( data, matrix, matrixLabel, coordinateData ) {
 				latlong = [coordinateData[j].latitude, coordinateData[j].longitude];
 				break;
 			}
+			else if (coordinateData[j].name === null){
+				latlong = [0,0];
+				break;
+			}
 		}
 		return latlong;
 	}
@@ -76,8 +83,9 @@ function buildHash ( data, matrix, matrixLabel, coordinateData ) {
 					/* SrcCoords: searchCoordinate(data[matrixLabel][y]),
 					DstCoords: searchCoordinate(data[matrixLabel][x]), */
 					X: x, Y: y, offset: (x > y)? 10: 0,
-					SrcPort: 'undefined',
-					DstPort: 'undefined' });
+					SrcPort: { Bytes: (data['asMatrixSrcPortHist'])? data['asMatrixSrcPortHist'][y][x] : 'undefined', Ports: data['srcPortNumbers'] },
+					DstPort: { Bytes: (data['asMatrixDstPortHist'])? data['asMatrixDstPortHist'][y][x] : 'undefined', Ports: data['dstPortNumbers'] }
+				});
 			}
 		}
 	}
@@ -97,13 +105,14 @@ function buildHash ( data, matrix, matrixLabel, coordinateData ) {
 					/* SrcCoords: searchCoordinate(data[matrixLabel][y]),
 					DstCoords: searchCoordinate(data[matrixLabel][x]), */
 					X: x, Y: y, offset: (x > y)? 10: 0,
-					SrcPort: { Bytes: data['continentMatrixSrcPortHist'][y][x], Ports: data['srcPortNumbers'] },
-					DstPort: { Bytes: data['continentMatrixDstPortHist'][y][x], Ports: data['dstPortNumbers'] }, });
+					SrcPort: { Bytes: (matrix === "continentMatrixByte")? data['continentMatrixSrcPortHist'][y][x] : data['countryMatrixSrcPortHist'][y][x], Ports: data['srcPortNumbers'] },
+					DstPort: { Bytes: (matrix === "continentMatrixByte")? data['continentMatrixDstPortHist'][y][x] : data['countryMatrixDstPortHist'][y][x], Ports: data['dstPortNumbers'] }
+					});
 				
 			}
 		}
 	}
-	//console.log(results);
+	console.log(results);
 	
 	return results;
 }
@@ -201,7 +210,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 			var datax = e.target.options.data.SrcPort.Ports;
 			var datay = e.target.options.data.SrcPort.Bytes;
 			
-			plotHistogramRaw( 0.1, "Port Numbers", "Bytes", datax, datay );
+			plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay );
 			
 		})
 		.addTo(map);
@@ -226,12 +235,12 @@ function drawTrafficPaths ( trafficData, map, options ) {
 			});
 		})
 		.on('click', function(e){
-			//console.log("click");
+			console.log(e.target);
 			
 			var datax = e.target.options.data.SrcPort.Ports;
 			var datay = e.target.options.data.SrcPort.Bytes;
 			
-			plotHistogramRaw( 0.1, "Port Numbers", "Bytes", datax, datay );
+			plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay );
 			
 		})
 		.addTo(map);
