@@ -736,11 +736,12 @@ function submitPktTraceTask()
 	var taskMsg = "packet_trace "+$('#pktTraceStart').val()+" "+$('#pktTraceStop').val()+" "+$('#pktTraceSrcIP').val()+" "+$('#pktTraceDstIP').val()+" "
 	+$('#pktTraceIPProto').val()+" "+$('#pktTraceSrcPort').val()+" "+$('#pktTraceDstPort').val();
 	
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskSubmissionURL : starlightTaskSubmissionURL;
 	// Send the task string to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: ukyTaskSubmissionURL+taskMsg,
+		url: URL+taskMsg,
 		dataType: "text",
 		success: submitTaskSuccess,
 		error: submitTaskError
@@ -754,11 +755,12 @@ function submitPktValidationTask()
 	// Submit the packet validation task
 	var taskMsg = "packet_validation "+$('#pktValidationStart').val()+" "+$('#pktValidationStop').val();
 	
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskSubmissionURL : starlightTaskSubmissionURL;
 	// Send the task string to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: ukyTaskSubmissionURL+taskMsg,
+		url: URL+taskMsg,
 		dataType: "text",
 		success: submitTaskSuccess,
 		error: submitTaskError
@@ -775,11 +777,12 @@ function submitNetFlowTask()
 	fieldNumbers = fieldNumbers.replace(/,/g,' ');
 	var taskMsg = "netflow "+$('#netFlowStart').val()+" "+$('#netFlowStop').val()+" "+fieldNumbers;
 	
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskSubmissionURL : starlightTaskSubmissionURL;
 	// Send the task string to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: ukyTaskSubmissionURL+taskMsg,
+		url: URL+taskMsg,
 		dataType: "text",
 		success: submitTaskSuccess,
 		error: submitTaskError
@@ -796,11 +799,12 @@ function submitThroughputTestTask()
 	var taskMsg = "perfSONAR_Throughput "+$('#throughputSrc').val()+" "+$('#throughputDst').val()+" "+testDuration/* +" localhost 5672 guest guest amq.direct" */;
 	// "path_to_the_code src_addr dst_addr duration_time localhost 5672 guest guest amq.direct"
 	
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskSubmissionURL : starlightTaskSubmissionURL;
 	// Send the task string to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: starlightTaskSubmissionURL+taskMsg,
+		url: URL+taskMsg,
 		dataType: "text",
 		success: submitTaskSuccess,
 		error: submitTaskError
@@ -815,11 +819,12 @@ function submitTcpTestTask()
 				+" "+$('#tcpProto').val()+" "+$('#tcpSrcPort').val()+" "+$('#tcpDstPort').val()/* +" localhost 5672 guest guest amq.direct" */;
 	// "path_to_the_code start_time end_time src_addr dst_addr protocol src_port dst_port localhost 5672 guest guest amq.direct"
 	
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskSubmissionURL : starlightTaskSumbmissionURL;
 	// Send the task string to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: starlightTaskSubmissionURL+taskMsg,
+		url: URL+taskMsg,
 		dataType: "text",
 		success: submitTaskSuccess,
 		error: submitTaskError
