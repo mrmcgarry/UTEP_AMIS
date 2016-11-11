@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="shortcut icon" href="http://marketing.ca.uky.edu/profiles/coa/themes/cafe_radix_yeti/favicon.ico" />
+  <title>Page not found | Marketing Resources</title>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Muli:300,300i,400,400i" rel="stylesheet">
+  <style media="all">
+@import url("http://marketing.ca.uky.edu/modules/system/system.base.css?odrb46");
+@import url("http://marketing.ca.uky.edu/modules/system/system.messages.css?odrb46");
+@import url("http://marketing.ca.uky.edu/modules/system/system.theme.css?odrb46");
+</style>
+<style media="all">
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.core.min.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-jquery-ui-theme.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.accordion.min.css?odrb46");
+</style>
+<style media="all">
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/ldap/ldap_user/ldap_user.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/calendar/css/calendar_multiday.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/date/date_api/date.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/date/date_popup/themes/datepicker.1.7.css?odrb46");
+@import url("http://marketing.ca.uky.edu/modules/field/theme/field.css?odrb46");
+@import url("http://marketing.ca.uky.edu/modules/node/node.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/office_hours/office_hours.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-fonts.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-dropbutton.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_magic/css/panopoly-magic.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_magic/css/panopoly-modal.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_theme/css/panopoly-featured.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_theme/css/panopoly-accordian.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_widgets/panopoly-widgets.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_wysiwyg/panopoly-wysiwyg.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/radix_layouts/radix_layouts.css?odrb46");
+@import url("http://marketing.ca.uky.edu/modules/user/user.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/views/css/views.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/coa.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/caption_filter/caption-filter.css?odrb46");
+</style>
+<style media="all">
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/ctools/css/ctools.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/ldap/ldap_servers/ldap_servers.admin.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/contrib/panels/css/panels.css?odrb46");
+</style>
+<style media="all">
+@import url("http://marketing.ca.uky.edu/profiles/coa/themes/cafe_radix_yeti/assets/stylesheets/screen.css?odrb46");
+@import url("http://marketing.ca.uky.edu/profiles/coa/themes/cafe_radix_yeti/assets/stylesheets/cafe-ukpr.css?odrb46");
+</style>
+<style media="print">
+@import url("http://marketing.ca.uky.edu/profiles/coa/themes/cafe_radix_yeti/assets/stylesheets/print.css?odrb46");
+</style>
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-fonts-ie-open-sans.css?odrb46" media="all" />
+<![endif]-->
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-fonts-ie-open-sans-bold.css?odrb46" media="all" />
+<![endif]-->
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-fonts-ie-open-sans-italic.css?odrb46" media="all" />
+<![endif]-->
+
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_core/css/panopoly-fonts-ie-open-sans-bold-italic.css?odrb46" media="all" />
+<![endif]-->
+<style media="all">
+@import url("http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_images/panopoly-images.css?odrb46");
+</style>
+
+  
+  <script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2"></script>
+<script src="http://marketing.ca.uky.edu/misc/jquery.once.js?v=1.2"></script>
+<script src="http://marketing.ca.uky.edu/misc/drupal.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.core.min.js?v=1.10.2"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.widget.min.js?v=1.10.2"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.tabs.min.js?v=1.10.2"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/jquery_update/replace/ui/ui/minified/jquery.ui.accordion.min.js?v=1.10.2"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/admin_menu/admin_devel/admin_devel.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_admin/panopoly-admin.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_magic/panopoly-magic.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_theme/js/panopoly-accordion.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/contrib/caption_filter/js/caption-filter.js?odrb46"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/themes/radix/assets/javascripts/modernizr-2.6.1.min.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/themes/radix/assets/javascripts/radix-script.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/themes/cafe_radix_yeti/assets/javascripts/script.js?odrb46"></script>
+<script>
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"cafe_radix_yeti","theme_token":"s72eyf3VOdnzgRW1SI1laDpTZpc4Vg6oJc43g-lWnjE","js":{"profiles\/coa\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.js":1,"profiles\/coa\/modules\/panopoly\/panopoly_widgets\/jquery-ui-tabs-rotate.js":1,"profiles\/coa\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/coa\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"profiles\/coa\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"profiles\/coa\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.tabs.min.js":1,"profiles\/coa\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"profiles\/coa\/modules\/contrib\/admin_menu\/admin_devel\/admin_devel.js":1,"profiles\/coa\/modules\/panopoly\/panopoly_admin\/panopoly-admin.js":1,"profiles\/coa\/modules\/panopoly\/panopoly_magic\/panopoly-magic.js":1,"profiles\/coa\/modules\/panopoly\/panopoly_theme\/js\/panopoly-accordion.js":1,"profiles\/coa\/modules\/contrib\/caption_filter\/js\/caption-filter.js":1,"http:\/\/netdna.bootstrapcdn.com\/twitter-bootstrap\/2.3.1\/js\/bootstrap.min.js":1,"profiles\/coa\/themes\/radix\/assets\/javascripts\/modernizr-2.6.1.min.js":1,"profiles\/coa\/themes\/radix\/assets\/javascripts\/radix-script.js":1,"profiles\/coa\/themes\/cafe_radix_yeti\/assets\/javascripts\/script.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.tabs.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"profiles\/coa\/modules\/contrib\/ldap\/ldap_user\/ldap_user.css":1,"profiles\/coa\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"profiles\/coa\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/coa\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"profiles\/coa\/modules\/contrib\/office_hours\/office_hours.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-fonts.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-dropbutton.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_magic\/css\/panopoly-magic.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_magic\/css\/panopoly-modal.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_theme\/css\/panopoly-featured.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_theme\/css\/panopoly-accordian.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_widgets\/panopoly-widgets.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_wysiwyg\/panopoly-wysiwyg.css":1,"profiles\/coa\/modules\/contrib\/radix_layouts\/radix_layouts.css":1,"modules\/user\/user.css":1,"profiles\/coa\/modules\/contrib\/views\/css\/views.css":1,"profiles\/coa\/coa.css":1,"profiles\/coa\/modules\/contrib\/caption_filter\/caption-filter.css":1,"profiles\/coa\/modules\/contrib\/ctools\/css\/ctools.css":1,"profiles\/coa\/modules\/contrib\/ldap\/ldap_servers\/ldap_servers.admin.css":1,"profiles\/coa\/modules\/contrib\/panels\/css\/panels.css":1,"profiles\/coa\/themes\/cafe_radix_yeti\/assets\/stylesheets\/screen.css":1,"profiles\/coa\/themes\/cafe_radix_yeti\/assets\/stylesheets\/cafe-ukpr.css":1,"profiles\/coa\/themes\/cafe_radix_yeti\/assets\/stylesheets\/print.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-fonts-ie-open-sans.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-fonts-ie-open-sans-bold.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-fonts-ie-open-sans-italic.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_core\/css\/panopoly-fonts-ie-open-sans-bold-italic.css":1,"profiles\/coa\/modules\/panopoly\/panopoly_images\/panopoly-images.css":1}},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber"},"spotlight_settings":{"rotation_time":4000}});
+</script>
+  <!--[if lt IE 9]>
+   <script>
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('aside');
+      document.createElement('footer');
+   </script>
+  <![endif]-->
+  <script>
+  jQuery( document ).ready(function() {
+    var buscript = document.createElement( 'script' );
+    buscript.type = 'text/javascript';
+    buscript.src = "//browser-update.org/update.js";
+    jQuery("head").append( buscript ); 
+    jQuery(".site-banner").backstretch("/profiles/coa/themes/cafe_radix_yeti/assets/images/cafe/site-banner-placeholder.jpg");
+      });
+  </script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-sites page-sites-marketingcaukyedu page-sites-marketingcaukyedu-files page-sites-marketingcaukyedu-files- page-sites-marketingcaukyedu-files-2013 page-sites-marketingcaukyedu-files-logos page-sites-marketingcaukyedu-files-logos-agfe page-sites-marketingcaukyedu-files-logos-agfe-agfeblue-gray page-sites-marketingcaukyedu-files-logos-agfe-agfeblue-gray-agfe-blue-graypng region-content" >
+<script>
+  WebFontConfig = {
+    custom: {
+      families: ['cafe-social', 'eb_garamondregular', 'eb_garamondsc']
+    }
+  };
+
+ (function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+    s.parentNode.insertBefore(wf, s);
+ })(document);
+</script>
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <!-- Begin $page_top -->
+    <!-- End $page_top -->
+  <header id="header" class="header" role="header">
+  <div class="uk-global-header">
+    <div class="container">
+    <div class="row">
+      <div class="span4 navbar">
+      <a href="http://www.ca.uky.edu">
+        <img src="/profiles/coa/themes/cafe_radix_yeti/assets/images/college-lockup.svg" class="uk-global-lockup--minmax" onerror="this.src='profiles/coa/themes/cafe_radix_yeti/assets/images/college-lockup.png'"/>
+        </a>
+      </div>
+      <div class="span1 offset4 "><a class="uk-global-header__myUK hidden-phone" href="http://myuk.uky.edu/">myUK</a></div>
+      <div class="span3 pull-right hidden-phone">
+                <div class="input-append uk-global-search" >
+              <form id="searchbox_003398099011942252124:gmpps7ysdwm" action="http://www.ca.uky.edu/index_n.php" method="get"> 
+                <input name="cx" type="hidden" value="003398099011942252124:gmpps7ysdwm" /> 
+                <input name="cof" type="hidden" value="FORID:11" />
+                <input name="siteurl" type="hidden" value="www2.ca.uky.edu/" />
+                <input name="ref" type="hidden" value="" />
+                <input name="ss" type="hidden" value="208j25472j4" />
+                <input name="q" type="text" class="span2 input-mini" id="appendedInputButton" />
+                <button class="btn btn-primary" type="submit"><i class="icon-search icon-white"> </i></button>
+              </form>
+            </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="uk-toolbar grayscale visible-phone">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <a href="http://marketing.ca.uky.edu/" rel="home" class="title site-name-primary site-name">Marketing Resources</a>        </div>  
+      </div> <!-- End Row -->
+    </div> <!-- End Container -->
+  </div> <!-- End uk-toolbar-->
+
+
+  <div class="uk-toolbar ">
+    <div class="container">
+      <div class="row navbar">
+        <div class="span12">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar btn-navbar-menu" data-toggle="collapse" data-target=".nav-menu-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <nav id="uk-left" class="links">
+                <a href="http://students.ca.uky.edu/">Students</a> :: <a href="http://research.ca.uky.edu/">Research</a> :: <a href="http://extension.ca.uky.edu/">Extension</a>
+          </nav>
+        </div>  
+      </div> <!-- End Row -->
+    </div> <!-- End Container -->
+  </div> <!-- End uk-toolbar-->
+
+
+  <div class="container hidden-phone cafe-page-wrap">
+      <div class="row ">
+        <div class="span12 site-banner">
+          <div class="">
+                      <div class="site-name-container">
+
+              <a href="http://marketing.ca.uky.edu/" rel="home" class="title site-name-primary site-name">Marketing Resources</a>            </div>
+                                  </div> <!-- / Site-banner -->
+          <div class="clearfix">&nbsp;</div>
+        </div> <!-- End Span9 -->
+
+      </div>
+  </div>
+</header>
+
+<div class="container cafe-page-wrap">
+<div class="container nav-collapse nav-menu-collapse">
+  <div class="row">
+    <div id="navigation" class="navbar span12">
+                  <nav id="main-menu" class="main-menu pull-left" role="navigation">
+            <ul class="menu nav"></ul>          </nav> <!-- /#main-menu -->
+            </div>
+  </div>
+</div>
+
+<div id="main-wrapper row">
+  <div id="main" class="main container">
+            <div id="content">
+      <a id="main-content"></a>
+      <div id="page-header">
+        <div class="container">
+                    <div class="page-header">
+            <h1 class="title">
+              Page not found            </h1>
+          </div>
+                                      </div>
+      </div>The requested page "/sites/marketing.ca.uky.edu/files/2013/Logos/AgFE/AgFEblue_gray/AgFE_blue_gray.png" could not be found.    </div>
+  </div>
+</div><!-- /#main-wrapper -->
+</div>
+
+<footer id="page-footer">
+  <!-- Department Information Region (page.tpl.php) -->
+    <div class="band">
+    
+<div class="site-footer college-footer container clearfix cafe-page-wrap-footer">
+  <div class="row">
+    <div class="span3">
+      <div class="padfoot">
+                  <div class="site-name-container clearfix">
+            <a href="http://marketing.ca.uky.edu/" rel="home" class="site-name site-name-primary">Marketing Resources</a>            <div class="clearfix">&nbsp;</div>
+          </div>
+          <div class="section site-contact-info clearfix">
+            <p>Becky Simmermacher<br />Ag Communications Specialist, Sr.<br />135 Scovell Hall<br />Lexington, KY 40546-0064<br />859 323-8408<br /><a href="mailto:beckys@uky.edu">beckys@uky.edu</a></p>
+          </div>
+              </div>
+    </div>
+
+    <div class="span9">
+      <div class="row">
+        <div class="span9">
+          <div class="uk-footer-lr clearfix padtop">
+            <div class="social pull-right">
+              <a class="icon-alone" href="https://www.facebook.com/UKAg1"><span aria-hidden="true" data-icon="&#xe800;" class="social-icon"></span><span class="screen-reader-text">Facebook</span></a>
+              <a class="icon-alone" href="https://twitter.com/UKAgriculture"><span aria-hidden="true" data-icon="&#xe801;" class="social-icon"></span><span class="screen-reader-text">Twitter</span></a>
+              <a class="icon-alone" href="https://www.instagram.com/ukagriculture/"><span aria-hidden="true" data-icon="&#xe803;" class="social-icon"></span><span class="screen-reader-text">Instagram</span></a>
+              <a class="icon-alone" href="http://www.youtube.com/user/UKAgriculture"><span aria-hidden="true" data-icon="&#xe804;" class="social-icon"></span><span class="screen-reader-text">YouTube</span></a>
+              <a class="icon-alone" href="http://www.pinterest.com/ukcollegeofag/"><span aria-hidden="true" data-icon="&#xe805;" class="social-icon"></span><span class="screen-reader-text">Pinterest</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span2">
+          <div class="uk-footer-lr padfoot">
+          <a class="section" href="http://students.ca.uky.edu/">Students</a>
+          <ul>
+            <li><a href="http://students.ca.uky.edu/arc">Advising Center</a></li>
+            <li><a href="http://students.ca.uky.edu/programcontacts">Contacts by Program</a></li>
+            <li><a href="http://students.ca.uky.edu/parents">Parents</a></li>
+            <li><a href="http://students.ca.uky.edu/facstaff">Faculty &amp; Staff</a></li>
+            <li><a href="http://students.ca.uky.edu/careers">Career Resources</a></li>
+            <li><a href="http://students.ca.uky.edu/scholarships">Scholarships</a></li>
+            <li><a href="http://students.ca.uky.edu/studentorgs">Student Organizations</a></li>
+            <li><a href="http://students.ca.uky.edu/educationabroad">Study Abroad</a></li>
+            <li><a href="http://administration.ca.uky.edu/sites/administration.ca.uky.edu/files/Accredited%20CAFE%20Programs%20Public.pdf">Accredited Programs</a></li>
+          </ul>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="padfoot">
+          <a class="section" href="http://extension.ca.uky.edu">Extension</a>
+          <ul>
+            <li><a href="http://directory.ca.uky.edu/administration">Team</a></li>
+            <li><a href="http://extension.ca.uky.edu/county/">County Offices</a></li>
+            <li><a href="http://districts.ca.uky.edu">Districts</a></li>
+            <li><a href="http://psd.ca.uky.edu/advisorycouncils">Advisory Council</a></li>
+          </ul>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="padfoot">
+          <a class="section" href="http://research.ca.uky.edu/">Research</a>
+          <ul>
+            <li><a href="http://research.ca.uky.edu/content/staff-contacts">Team</a></li>
+            <li><a href="http://research.ca.uky.edu/content/graduate-education">Graduate Studies</a></li>
+            <li><a href="http://research.ca.uky.edu/content/funding-resources">Funding Resources</a></li>
+            <li><a href="http://research.ca.uky.edu/federal-formula-funds">Federal Formula Funds</a></li>
+            <li><a href="http://research.ca.uky.edu/forms">Forms</a></li>
+          </ul>
+          <a class="section" href="http://marketing.ca.uky.edu/">Resources</a>
+          <ul>
+            <li><a href="http://marketing.ca.uky.edu/">Marketing</a></li>
+          </ul>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="padfoot">
+          <a class="section" href="http://alumni.ca.uky.edu/">Alumni</a>
+          <a class="section" href="http://www.ca.uky.edu/deptunits">Departments &amp; Units</a>
+          <ul>
+            <li><a href="http://hes.ca.uky.edu/">School of Human Environmental Sciences</a></li>
+            <li><a href="http://www.ca.uky.edu/deptunits">Departments (14)</a></li>
+            <li><a href="http://www.ca.uky.edu/deptunits">Units (8)</a></li>
+            <li><a href="http://www.ca.uky.edu/deptunits">Centers (5)</a></li>
+            <li><a href="http://arboretum.ca.uky.edu">The Arboretum</a></li>
+            <li><a href="http://vdl.uky.edu/">UK Veterinary Diagnostic Laboratory</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="span12 uk-footer-hr">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="span12">
+    <div class="uk-lockup-block">
+    <div class="uk-lockup">
+              
+                  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+                      <symbol id="mobile-logo" viewBox="943.8 8.6 438.7 101.5">
+                          <style>
+                              .headpath{fill:#FFFFFE;} .headpath1{fill:none;} .headpath2{enable-background:new ;}
+                          </style>
+                          <path class="headpath" d="M971.4 51.2h-5.1V23.6h5.1v-6.8h-24.1v6.8h5.2v27.6l6.9 6.8h12zM988.6 58h12.1l6.9-6.8V23.6h5.2v-6.8h-24.2v6.8h5.2v27.6h-5.2z"></path>
+                          <path class="headpath" d="M1013.2 64.5l15.1-15.1h6.8v-6.9h-25.8v6.9h2.6l-10.3 10.5h-14.7V49.4h5.2v-6.9H968v6.9h5.2v31H968v7h24.1v-7h-5.2V70.1h14.7l10.3 10.3h-2.6v7h25.8v-7h-6z"></path>
+                          <path class="headpath" d="M1030.8 77l-12.5-12.5 11.6-11.6h8.6V39.1h-27.6v-12h5.2V13.4h-31v13.8h5.2v12h-20.7v-12h5.2V13.4h-31v13.8h5.2V53l8.6 8.6h12.1V77h-5.2v13.8h31V77h-5.2v-3.5h9.5l6 6v11.2h32.7V77h-7.7zm6.1 12h-29.3V78.8l-6.9-6.9h-12.1v6.9h5.2V89h-27.6V78.8h5.2V59.9h-12.9l-7.7-7.7V25.4h-5.2V15.1h27.6v10.3H968v15.5h24.1V25.4h-5.2V15.1h27.5v10.3h-5.2v15.5h27.6v10.3h-7.7l-13.3 13.3 14.2 14.2h6.9V89z"></path>
+                          <path class="headpath1" d="M1049.9 8.6h235.5v35.1h-235.5z"></path>
+                          <path class="headpath1" d="M1050 42.6h332.5v67.5H1050z"></path>
+                          <path class="headpath2 headpath" d="M1068.8 13.9v-.6h7.1v.6l-2.9 1v14.4c0 1.2-.2 2.3-.7 3.3-.5 1-1.1 1.9-1.9 2.6-.8.7-1.8 1.3-2.9 1.7-1.1.4-2.3.6-3.6.6-2.9 0-5.2-.7-6.9-2s-2.5-3.4-2.5-6.1V14.6l-3.7-.7v-.6h11.1v.6l-3.7.7v14c0 1.3.1 2.4.4 3.3.3.9.7 1.6 1.4 2.2.6.6 1.4 1 2.3 1.2.9.2 2 .4 3.2.4 1.1 0 2.1-.2 2.8-.6.8-.4 1.4-.9 2-1.6.5-.7.9-1.4 1.1-2.3.2-.9.4-1.8.4-2.8V14.9l-3-1zM1093.2 35.7l2.4.7v.5h-7.9v-.5l2.3-.7v-9.3c0-1.4-.3-2.4-.8-3.1-.5-.7-1.4-1-2.7-1-.8 0-1.5.1-2.1.3-.6.2-1.3.5-2 .9v12.3l2.3.7v.5h-7.8v-.5l2.4-.7v-13l-2.4-1.6V21l5.1-1.3.1.1-.1 3 .1.1c2.2-2.1 4.3-3.1 6.3-3.1.8 0 1.6.1 2.1.4.6.3 1.1.7 1.4 1.1.4.5.6 1 .8 1.6.2.6.2 1.3.2 1.9v10.9z"></path>
+                          <g class="headpath2">
+                              <path class="headpath" d="M1097.5 21.3V21l5.4-1.3.1.1v15.9l2.5.7v.5h-8.2v-.5l2.6-.7V22.8l-2.4-1.5zm2.6-8.6c.4-.5.9-.7 1.6-.7.6 0 1 .2 1.4.6.4.4.6.9.6 1.4 0 .6-.2 1.1-.6 1.6-.4.5-.9.7-1.6.7-.6 0-1-.2-1.4-.6-.4-.4-.6-.9-.6-1.5-.1-.5.1-1.1.6-1.5zM1116.9 33h.1l1.9-4.8 2.3-6.4-2.4-1.1v-.5h6.5v.5l-2.7 1.1-6.3 15.4h-.9l-6.6-15.7-2.3-.8v-.5h8.5v.5l-2.6.8 4.5 11.5z"></path>
+                          </g>
+                          <path class="headpath2 headpath" d="M1128 26.8c0 1.2.1 2.4.3 3.4.2 1 .6 1.9 1 2.6s1.1 1.3 1.8 1.7c.7.4 1.6.6 2.7.6.9 0 1.8-.1 2.6-.3.8-.2 1.8-.6 2.8-1.1l.2.4c-1.2 1.1-2.3 1.9-3.3 2.5-1.1.6-2.2.8-3.4.8-1.2 0-2.3-.2-3.3-.6-1-.4-1.8-1-2.6-1.8-.7-.8-1.3-1.7-1.7-2.7-.4-1.1-.6-2.2-.6-3.5 0-1.3.2-2.5.6-3.6.4-1.1 1-2.1 1.7-2.9s1.6-1.5 2.6-1.9 2.1-.7 3.2-.7 2.1.2 3 .5c.9.4 1.6.9 2.2 1.5.6.6 1 1.4 1.3 2.3.3.9.4 1.8.4 2.9H1128zm8.2-1c-.1-1.6-.5-2.9-1-3.8-.6-1-1.4-1.5-2.6-1.5-.6 0-1.1.1-1.7.4-.5.3-1 .6-1.4 1.1-.4.5-.7 1.1-1 1.7-.3.7-.4 1.4-.5 2.3l8.2-.2zM1153 23.2c-.3.4-.8.6-1.4.6-.5 0-.9-.2-1.3-.5-.4-.4-.6-.8-.7-1.4-.7 0-1.3.3-2 .8-.6.5-1.1 1-1.3 1.6v11.4l2.6.7v.5h-8.1v-.5l2.4-.7V22.8l-2.4-1.6V21l5.2-1.3.1.1-.1 3.6.1.1c.6-1.2 1.3-2.1 2.2-2.8.9-.7 1.8-1 2.6-1s1.5.2 1.9.6.6.9.6 1.5c.2.6 0 1.1-.4 1.4zM1166 34.1c-.3.7-.8 1.3-1.4 1.8-.6.5-1.2.9-2 1.1-.8.3-1.6.4-2.5.4-.9 0-1.8-.1-2.6-.2s-1.6-.4-2.5-.8v-4.7l.8-.1c.6 1.7 1.3 2.9 2.2 3.7.8.8 1.7 1.1 2.8 1.1 1 0 1.8-.3 2.3-.8.6-.5.9-1.3.9-2.3 0-.5-.1-.9-.3-1.3-.2-.4-.5-.7-.9-1-.4-.3-.8-.5-1.3-.7l-1.5-.6c-.6-.2-1.1-.5-1.7-.8-.6-.3-1-.6-1.5-1-.4-.4-.8-.8-1.1-1.3-.3-.5-.4-1.1-.4-1.9 0-.7.1-1.4.4-2.1s.7-1.2 1.2-1.6c.5-.5 1.1-.8 1.8-1.1.7-.3 1.5-.4 2.4-.4.7 0 1.5.1 2.3.2.9.1 1.5.3 2 .5l.1 4.2-.7.2c-.7-1.5-1.4-2.5-2.2-3.2-.7-.6-1.5-1-2.3-1-.8 0-1.5.2-2 .7-.5.4-.8 1.1-.8 1.9 0 .5.1.9.4 1.3s.5.7.9 1c.4.3.8.5 1.3.7.5.2 1 .4 1.5.7.6.2 1.1.5 1.7.8.6.3 1.1.6 1.5 1 .4.4.8.8 1.1 1.4.3.5.4 1.2.4 1.9.2.8.1 1.6-.3 2.3zM1169.1 21.3V21l5.4-1.3.1.1v15.9l2.5.7v.5h-8.2v-.5l2.6-.7V22.8l-2.4-1.5zm2.6-8.6c.4-.5.9-.7 1.6-.7.6 0 1 .2 1.4.6.4.4.6.9.6 1.4 0 .6-.2 1.1-.6 1.6-.4.5-1 .7-1.6.7-.6 0-1-.2-1.4-.6-.4-.4-.6-.9-.6-1.5-.1-.5.1-1.1.6-1.5zM1186.6 36.6c-.9.3-1.8.5-2.6.5-1.4 0-2.4-.3-2.9-.9-.5-.6-.8-1.6-.8-2.9V21.9h-2.6v-.5l2.9-1.9 2.2-3.4h.6v4.2h5.6v1.6h-5.6V32c0 .7 0 1.2.1 1.6s.3.8.7 1.1c.5.3 1.4.4 2.7.4h1c.3 0 .7 0 1.1-.1v.4c-.6.5-1.5.9-2.4 1.2zM1198.1 40.1c-1.2 3-2.8 4.5-4.8 4.5-.9 0-1.5-.2-1.9-.7-.4-.4-.6-.9-.6-1.4 0-.5.2-.9.6-1.3.4-.3.8-.5 1.3-.5.6 0 1 .2 1.4.5.4.3.8.7 1.2 1.3.7-.7 1.4-1.7 1.9-2.9l1.1-2.4-6.4-15.7-2.3-.8v-.5h8.4v.5l-2.6.8 4.3 11.5h.2l4-11.2-2.3-1.1v-.5h6.3v.5l-2.5 1.1-7.3 18.3zM1229.5 31.7c-.4 1.1-1 2.1-1.7 2.9s-1.7 1.5-2.8 2c-1.1.5-2.3.8-3.7.8-1.3 0-2.5-.2-3.6-.7-1-.5-1.9-1.1-2.6-1.9-.7-.8-1.2-1.8-1.6-2.9-.4-1.1-.5-2.3-.5-3.6 0-1.2.2-2.4.6-3.5.4-1.1 1-2.1 1.7-2.9.8-.8 1.7-1.5 2.8-2 1.1-.5 2.3-.7 3.7-.7 1.4 0 2.6.2 3.6.7 1 .5 1.9 1.1 2.6 1.9.7.8 1.2 1.7 1.6 2.9.4 1.1.5 2.3.5 3.6 0 1.1-.2 2.3-.6 3.4zm-4.6-9.6c-.9-1.3-2.1-2-3.6-2-1.3 0-2.4.7-3.3 2.1s-1.4 3.5-1.4 6.3c0 1.4.1 2.6.4 3.6.3 1 .6 1.9 1.1 2.5.5.7 1 1.2 1.6 1.5.6.3 1.2.5 1.9.5 1.4 0 2.6-.7 3.4-2 .9-1.4 1.3-3.5 1.3-6.3.1-2.8-.4-4.9-1.4-6.2zM1237.6 21.6v14.1l3.1.7v.5h-8.8v-.5l2.5-.7V21.6h-3.4V21l3.4-1v-1.8c0-1.9.2-3.4.8-4.6.5-1.2 1.2-2.2 2.2-3 .7-.6 1.4-1.1 2.2-1.4.8-.3 1.7-.5 2.5-.5 1 0 1.8.2 2.3.6s.8.9.8 1.5-.2 1.1-.5 1.4c-.3.4-.8.5-1.4.5-.6 0-1.1-.2-1.7-.6-.5-.4-1.1-1.1-1.7-2.1-.8.5-1.4 1.2-1.8 2.3-.4 1-.6 2.5-.6 4.4V20h4.7v1.5h-4.6z"></path>
+                          <g class="headpath2">
+                              <path class="headpath" d="M1089.9 87.8l5.5 1.9v1.1h-17.6v-1.1l4.4-1.6-13.2-17.5h-3.8v17.9l6.5 1.2v1.1h-19.4v-1.1l6.4-1.2V51.7l-6.4-1.2v-1.1h19.4v1.1l-6.5 1.2v16.8h4.4l14.4-15.9-4.9-2v-1.1h14.1v1.1l-5.8 2.3-13.8 14.4 16.3 20.5zM1101.6 73.3c0 2.2.2 4.1.6 5.9.4 1.8 1 3.3 1.8 4.6.8 1.3 1.9 2.3 3.2 3s2.9 1.1 4.7 1.1c1.6 0 3.1-.2 4.6-.6 1.5-.4 3.1-1.1 5-2l.4.8c-2 1.9-4 3.4-5.9 4.4-1.9 1-3.9 1.5-6 1.5s-4-.4-5.7-1.1c-1.7-.7-3.2-1.8-4.5-3.1-1.3-1.3-2.3-2.9-3-4.8-.7-1.9-1-3.9-1-6.2 0-2.3.4-4.4 1.1-6.4.7-1.9 1.8-3.6 3.1-5.1 1.3-1.4 2.8-2.6 4.6-3.4 1.7-.8 3.6-1.2 5.7-1.2 2 0 3.7.3 5.3.9 1.5.6 2.8 1.5 3.8 2.6s1.8 2.5 2.3 4c.5 1.5.7 3.2.7 5h-20.8zm14.3-1.9c-.2-2.8-.8-5-1.8-6.7-1-1.7-2.5-2.6-4.5-2.6-1 0-2 .2-2.9.7-.9.5-1.7 1.1-2.4 2s-1.3 1.9-1.8 3.1c-.5 1.2-.7 2.5-.8 4l14.2-.5z"></path>
+                          </g>
+                          <path class="headpath2 headpath" d="M1155.6 88.8l4.3 1.2v.8H1146V90l4.1-1.2V72.5c0-2.5-.5-4.3-1.4-5.5s-2.5-1.8-4.7-1.8c-1.4 0-2.6.2-3.7.5s-2.3.8-3.6 1.6v21.6l4 1.2v.8h-13.8V90l4.3-1.2V66.2l-4.2-2.7v-.6l9-2.3.3.2-.1 5.2.3.1c3.9-3.6 7.6-5.5 11.2-5.5 1.5 0 2.7.2 3.8.7 1 .5 1.8 1.2 2.5 2 .6.8 1.1 1.8 1.4 2.9s.4 2.2.4 3.4v19.2zM1175.8 90.5c-1.6.6-3.1.8-4.6.8-2.5 0-4.1-.6-5-1.7-.9-1.1-1.3-2.8-1.3-5.2V64.6h-4.5v-.8l5.1-3.4 3.8-5.9h1.1v7.3h9.9v2.8h-9.9v17.7c0 1.2.1 2.1.3 2.9.2.8.6 1.4 1.3 1.9.9.5 2.5.8 4.8.8h1.7c.6 0 1.3-.1 2-.1l.1.7c-1.7.7-3.2 1.4-4.8 2z"></path>
+                          <g class="headpath2">
+                              <path class="headpath" d="M1214.9 88.9v.7l-9.1 2.3-.3-.1.1-5.1-.3-.1c-3.9 3.6-7.6 5.5-11.1 5.5-1.5 0-2.7-.2-3.7-.7-1-.5-1.8-1.2-2.5-2-.6-.8-1.1-1.8-1.4-2.9-.3-1.1-.4-2.2-.4-3.4v-17l-4.2-2.3v-.6l9.4-2.3.3.2V80c0 2.5.5 4.4 1.4 5.6.9 1.2 2.5 1.8 4.7 1.8 1.4 0 2.6-.2 3.7-.5s2.3-.9 3.6-1.6V65.8l-4.3-2.3v-.6l9.5-2.3.3.2v26.4l4.3 1.7zM1242.1 69.3c-.7.7-1.5 1.1-2.5 1.1-1.2 0-2.1-.4-2.7-1.2-.7-.8-1-1.7-1-2.7 0-.7.1-1.4.4-2.1.3-.7.6-1.2 1-1.7-.8-.2-1.7-.3-2.7-.3-1.4 0-2.7.2-4 .7-1.3.5-2.4 1.3-3.4 2.3s-1.8 2.4-2.4 4.1c-.6 1.6-.9 3.6-.9 6 0 1.7.2 3.3.7 4.8s1.1 2.8 2 3.9c.9 1.1 1.9 2 3.2 2.6 1.3.6 2.8.9 4.4.9 1.6 0 3.2-.2 4.6-.6 1.5-.4 3-1 4.5-1.8l.3.8c-1.5 1.6-3.3 3-5.3 4s-4 1.6-6.1 1.6-4-.4-5.8-1.1c-1.8-.7-3.3-1.7-4.5-3.1-1.3-1.3-2.3-2.9-3-4.8-.7-1.9-1-3.9-1-6.2 0-2.3.4-4.4 1.2-6.3.8-2 1.9-3.7 3.3-5.1 1.4-1.5 3.1-2.6 5-3.4 2-.8 4.1-1.2 6.4-1.2 2.7 0 4.9.6 6.5 1.7 1.6 1.1 2.4 2.5 2.4 4.2.4 1.2.1 2.2-.6 2.9zM1274.8 88.6l3.6 1.4v.8h-12.7V90l2.6-1.4-8.5-12h-2.6v12.2l3.6 1.2v.8h-13.7V90l4.6-1.2V48.6l-4.7-2.8v-.6l9.9-2.5.3.1v31.9h2.9l8.5-10.1-3.4-2.3v-.6h12v.8l-4.4 1.7-9.4 9.5 11.4 14.9zM1294.3 96.5c-2.1 5.3-5 7.9-8.5 7.9-1.5 0-2.6-.4-3.3-1.2-.7-.8-1-1.6-1-2.5 0-.9.3-1.6 1-2.2.6-.6 1.4-.9 2.3-.9 1 0 1.8.3 2.5.8.7.6 1.4 1.3 2 2.2 1.3-1.2 2.4-2.9 3.4-5.1l1.9-4.3-11.3-27.5-4-1.4v-.8h14.8v.8l-4.6 1.4 7.6 20.2h.3l7-19.7-4.1-1.9v-.8h11.1v.8l-4.4 2-12.7 32.2z"></path>
+                          </g>
+                      </symbol>
+                      <image src="/profiles/coa/themes/cafe_radix_yeti/assets/images/college-lockup.png" xlink:href="">
+                  </svg>
+              
+                  <a href="http://www.uky.edu" target="_blank">
+                      <svg  class="uk-lockup--white">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#mobile-logo"></use>
+                      </svg>
+                  </a>
+                  
+              </div>
+      </div>
+    </div>
+  </div>
+  <div class="row footer-close">
+        <div class="span2">&nbsp;</div>
+        <div class="span2">&copy; <a href="http://www.uky.edu/">University of Kentucky</a></div>
+        <div class="span2"><a href="http://www.uky.edu/UKHome/see/lexington.html">Lexington, Kentucky 40506</a></div>
+        <div class="span2">(859) 257-9000</div>
+        <div class="span2"><a href="http://www.uky.edu/Home/Web/eo/">An Equal Opportunity University</a></div>
+        <div class="span2"><a href="#">Back to Top</a></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row ">
+        <div class="span12">&nbsp;</div>
+  </div>
+</div>
+  </div>
+</footer>
+  <script src="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_widgets/panopoly-widgets.js?odrb46"></script>
+<script src="http://marketing.ca.uky.edu/profiles/coa/modules/panopoly/panopoly_widgets/jquery-ui-tabs-rotate.js?odrb46"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+</body>
+</html>
