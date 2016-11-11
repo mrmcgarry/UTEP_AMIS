@@ -73,42 +73,46 @@
 				<option value="trafficMatrix">Traffic Matrix</option>
 				<option value="linkGranularity">Link granularity</option>
 				<option value="flowGranularity">Flow granularity</option>
+				<option value="throughputTest">Throughput Test</option>
+				<option value="tcpFlow">TCP Flow Analysis</option>
 			</select><br/>
 		</fieldset>
 		<fieldset id="pktValidationFields">
 			<legend>Packet validation</legend>
-			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStart" type="text" name="pktValidationStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
-			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStop" type="text" name="pktValidationStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Note: Timestamps need to be for US Eastern time</label></br></br>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStart" type="text" name="pktValidationStart" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktValidationStop" type="text" name="pktValidationStop" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)"/></label><br/>
 		</fieldset>
 		<fieldset id="netFlowFields">
 			<legend>Netflow</legend>
-			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStart" type="text" name="netFlowStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
-			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStop" type="text" name="netFlowStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
-			<label for="netFlowFieldNumber">Field number(s):</label>
+			<label>Note: Timestamps need to be for US Eastern time</label></br></br>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStart" type="text" name="netFlowStart" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)" /></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="netFlowStop" type="text" name="netFlowStop" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)" /></label><br/>
+			<label for="netFlowFieldNumber">Field(s) to be collected <strong>[Popular fields are pre-selected]</strong>:</label>
 			<select id="netFlowFieldNumber" name="netFlowFieldNumber" multiple="multiple" size="6">
-				<option value="1">version</option>
-				<option value="2">flow_count</option>
-				<option value="3">sys_time</option>
-				<option value="4">unix_secs</option>
-				<option value="5">unix_nsecs</option>
+				<option value="1">version (hdr)</option>
+				<option value="2">flow_count (hdr)</option>
+				<option value="3" selected="selected">SysUptime (hdr)</option>
+				<option value="4" selected="selected">unix_secs (hdr)</option>
+				<option value="5"selected="selected">unix_nsecs (hdr)</option>
+				<option value="7">engine_type (hdr)</option>
+				<option value="8">engine_id (hdr)</option>
+				<option value="9">samp_rate (hdr)</option>
 				<option value="6">flow#(OVS)</option>
-				<option value="7">engine_type</option>
-				<option value="8">engine_id</option>
-				<option value="9">samp_rate</option>
 				<option value="10">flow#(API)</option>
-				<option value="11">srcaddr</option>
-				<option value="12">dstaddr</option>
+				<option value="11" selected="selected">srcaddr</option>
+				<option value="12" selected="selected">dstaddr</option>
 				<option value="13">nexthop</option>
 				<option value="14">inputif</option>
 				<option value="15">outputif</option>
-				<option value="16">dPkts</option>
-				<option value="17">dOctets</option>
-				<option value="18">first</option>
-				<option value="19">last</option>
-				<option value="20">srcport</option>
-				<option value="21">dstport</option>
+				<option value="16" selected="selected">dPkts</option>
+				<option value="17" selected="selected">dOctets</option>
+				<option value="18" selected="selected">first</option>
+				<option value="19" selected="selected">last</option>
+				<option value="20" selected="selected">srcport</option>
+				<option value="21" selected="selected">dstport</option>
 				<option value="22">tcp_flags</option>
-				<option value="23">prot</option>
+				<option value="23" selected="selected">prot</option>
 				<option value="24">tos</option>
 				<option value="25">src_as</option>
 				<option value="26">dst_as</option>
@@ -118,8 +122,9 @@
 		</fieldset>
 		<fieldset id="pktTraceFields">
 			<legend>Packet trace</legend>
-			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStart" type="text" name="pktTraceStart" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
-			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStop" type="text" name="pktTraceStop" value="2016-04-05-12-00-00" pattern="\d{4}\-\d{2}\-\d{2}\-\d{2}\-\d{2}\-\d{2}" onchange="validateTaskDate(this)"/></label><br/>
+			<label>Note: Timestamps need to be for US Eastern time</label></br></br>
+			<label>Start Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStart" type="text" name="pktTraceStart" value="2016-04-05-12-00-00"  onchange="validateTaskDate(this)"/></label><br/>
+			<label>Stop Time (YYYY-MM-DD-hh-mm-ss):<input id="pktTraceStop" type="text" name="pktTraceStop" value="2016-04-05-12-00-00"  onchange="validateTaskDate(this)"/></label><br/>
 			<label>Source IP Address:<input id="pktTraceSrcIP" type="text" name="pktTraceSrcIP" value="192.168.1.1" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
 			<label>Destination IP Address:<input id="pktTraceDstIP" type="text" name="pktTraceDstIP" value="192.168.1.2" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
 			<label>IP Protocol Number [<span id="ip_proto_name"></span>]:<input id="pktTraceIPProto" type="text" name="pktTraceIPProto" value="6" pattern="\d{1,3}" onchange="pktTraceIPProtoChange()"/></label><br/>
@@ -186,8 +191,24 @@
 			</select><br/>
 			<label>Burst monitoring<input type="checkbox" name="burstmon"/></label>
 			<label>Packet train tolerance (msec)<input type="text" name="traintolerance"/></label>
-			
 		</fieldset>
+		<fieldset id="throughputFields">
+			<legend>Throughput Monitoring</legend>
+			<label for="srcAddress">Source Address: </label><input id="throughputSrc" type="text" name="srcAddress" value="18.75.1.137" /><br/>
+			<label for="dstAddress">Destination Address: </label><input id="throughputDst" type="text" name="dstAddress" value="164.58.16.98" /><br/>
+			<label for="duration">Test Duration (seconds): </label><input id="throughputDuration" type="number" name="duration" value="10" min="0"/>
+		</fieldset>
+		<fieldset id="tcpFlowFields">
+			<legend>TCP Flow Monitoring</legend>
+			<label for="tcpFlowStart">Start Time (YYYY-MM-DD-hh-mm-ss): <input id="tcpFlowStart" type="text" name="tcpFlowStart" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)" /></label><br/>
+			<label for="tcpFlowEnd">Stop Time (YYYY-MM-DD-hh-mm-ss): <input id="tcpFlowEnd" type="text" name="tcpFlowEnd" value="2016-04-05-12-00-00" onchange="validateTaskDate(this)" /></label><br/>
+			<label for="tcpSrcAddr">Source IP Address: <input id="tcpSrcAddr" type="text" name="tcpSrcAddr" value="129.63.205.41" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
+			<label for="tcpDstAddr">Destination IP Address: <input id="tcpDstAddr" type="text" name="tcpDstAddr" value="165.124.33.141" pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}" onchange="validateIPAddress(this)"/></label><br/>
+			<label for="protocol">Protocol: </label><input id="tcpProto" type="text" name="protocol" value="tcp" /><br/>
+			<label for="tcpSrcPort">Source Port: </label><input id="tcpSrcPort" type="number" name="tcpSrcPort" value="39636" min="0"/><br/>
+			<label for="tcpDstPort">Destination Port: </label><input id="tcpDstPort" type="number" name="tcpDstPort" value="5201" min="0"/>
+		</fieldset>
+		
 			<br/><input id="submitTask" type="submit" name="submitTask" value="Submit task"/>
 		</form>
 

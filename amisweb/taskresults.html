@@ -64,6 +64,10 @@
 	<main>
 		<fieldset>
 			<legend>Measurement Task Data Retrieval and Management</legend>
+			<form action="">
+				<label>UKY Location</label><input type="radio" name="location" checked="true" id="ukyresultscheck"></input>
+				<label>Starlight Location</label><input type="radio" name="location" id="starresultscheck"></input><br/>
+			</form>
     		<input type="submit" onclick="getTaskListSelect();" value="Get Task List" />&nbsp;
     		<select id="taskList"></select><br/>
     		<div class="taskListTable"></div>
@@ -89,8 +93,10 @@
 			</select>
 			<p id="datavizMsg"></p>
 			<!-- Container for D3.js visualization -->
-			<div class="vizContainer"></div>
-			<div class="vizContainer2"></div>
+			<div id="vizContainer" class="vizContainer"></div>
+			<label for="resultViz">Results Visualization Selection:</label>
+			<select id="dataVizSelect" name="resultViz"></select>
+			<div id="vizContainer2"></div>
 			<div class="measurementData"></div>
 		</fieldset>
 		
