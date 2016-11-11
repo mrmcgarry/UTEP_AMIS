@@ -6,14 +6,6 @@
 	<title>Advanced Measurement Instrument and Services (AMIS)</title>
 	<link rel="stylesheet" href="css/amis.css">
 	<link rel="stylesheet" href="css/leaflet.css" />
-	<script src="js/amis.js"></script>
-	<script src="js/jquery-2.2.2.min.js"></script>
-	<script src="js/simple_statistics.min.js"></script>
-	<script src="js/moment.min.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/simpleviz.js"></script>
-	<script src="js/leaflet.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body onload="setCurrentYear(),loadExistingTopTalkerData()">
@@ -79,19 +71,46 @@
 		
 		<p id="displayMsg"></p>
 		
-		<fieldset>
+		<fieldset class="vizField">
 			<legend>Geo Visualizations</legend>
 			<label for="dataVizGeo">Geo Visualization Selection:</label>
-			<select id="vizSelectGeo" name="dataVizGeo" onchange="geoViz()">
-				<option value="continentMatrix">Continent-level Traffic Matrix</option>
+			<select id="vizSelectGeo" name="dataVizGeo">
+				<option value="continentMatrixByte">Continent-level Traffic Matrix</option>
+				<option value="countryMatrixByte">Country-level Traffic Matrix</option>
+				<option value="asMatrixByte">Organization-level Traffic Matrix</option>
 				<option value="pkthist"># of packets histogram</option>
 				<option value="srcporthist">Source Port Service Name Histogram</option>
 				<option value="dstporthist">Destination Port Service Name Histogram</option>
 				<option value="protocolhist">Protocol Name Histogram</option>
 			</select>
+			<input id="histCheck" type="checkbox" name="histCheck" checked="true" title="Map data will be reloaded"/>
+			<label for="histCheck" title="Map data will be reloaded">Generate histogram?</label>
+			<input id="appCheck" type="checkbox" name="appCheck" defaultChecked="false" title="Map data will be reloaded"/>
+			<label for="appCheck" title="Map data will be reloaded">Show application names?</label>
+			<input id="reloadButt" type="button" name="reload" value="Reload Map" title="Reload map data"></input>
+			<br/>
+			<label for="dataSelTxt">Dataset Selection:</label>
+			<!-- <select id="dataSel" name="dataSelect">
+				<option value="1">Dataset 1</option>
+				<option value="2" selected="selected">Dataset 2</option>
+				<option value="3">Dataset 3</option>
+			</select> -->
+			<input type="text" name="dataSelTxt" id="dataSelTxt" placeholder="instrumentData2" value="instrumentData2"></input>
+			<input id="loadButt" type="button" name="load" value="Load Data" title="Load the indicated dataset into map"></input>
+			<input id="killButt" type="button" name="clear" value="Clear Map" title="Clears map from all data"></input>
+			<br/>
+			<label for="mapWSize">Adjust map width :</label>
+			<input id="sizeSliderW" type="range" name="mapWSize" max="100" value="100"/>
+			<input id="sizeInputW" type="number" name="mapWSize" max="100" value="100"/><label for="mapWSize">% of window width</label>
+			<br/>
+			<label for="mapHSize">Adjust map height:</label>
+			<input id="sizeSliderH" type="range" name="mapHSize" max="1000" value="1000"/>
+			<input id="sizeInputH" type="number" name="mapHSize" max="500" value="1000"/><label for="mapHSize">pixels</label>
 			<p id="datavizMsg"></p>
 			<!-- Container for visualization -->
 			<div id="mapContainer"></div>
+			<br/>
+			<div id= "vizContainer" class="vizContainer"></div>
 		</fieldset>
 		
 		<fieldset>
@@ -105,7 +124,23 @@
 		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
 		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
 	</footer>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://d3js.org/queue.v1.min.js" type="text/JavaScript"></script>
+	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- <script src="http://http://bbecquet.github.io/Leaflet.PolylineOffset/leaflet.polylineoffset.js"></script> -->
+	<script src="js/leaflet.polylineoffset.js"></script> <!-- Leaflet plugin for polyline offsets -->
+	<!--<script src="js/leaflet.polylineDecorator.js"></script>  Leaflet plugin for polyline decorations HUGE PERFORMANCE ISSUES-->
+	<script src="js/MovingMarker.js"></script> <!-- Leaflet plugin for animated markers -->
+	
+	<script src="js/amis.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/simple_statistics.min.js"></script>
+	<script src="js/moment.min.js"></script>
+	
+	<script src="js/simpleviz.js"></script>
+	<script src="js/trafficMatrixMap.js"></script>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
 
 </html>

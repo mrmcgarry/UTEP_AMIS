@@ -5,11 +5,19 @@
 	<meta charset="UTF-8">
 	<title>Advanced Measurement Instrument and Services (AMIS)</title>
 	<link rel="stylesheet" href="css/amis.css">
+	<link rel="stylesheet" href="css/vis.min.css">
 	<script src="js/amis.js"></script>
 	<script src="js/jquery-2.2.2.min.js"></script>
 	<script src="js/simple_statistics.min.js"></script>
 	<script src="js/d3.min.js"></script>
+	<script src="js/vis.min.js"></script>
 	<script src="js/simpleviz.js"></script>
+<!-- 	<script src="js/amis.js"></script>
+	<script src="js/simpleviz.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/simple_statistics.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/vis.min.js"></script> -->
 </head>
 
 <body onload="setCurrentYear(),loadExistingTopTalkerData()">
@@ -28,6 +36,7 @@
 				<li><a href="viewdata.html" class = "active">View Measurement Data</a>
 					<ul class="drop">
 						<li><a href="taskresults.html">Task Results</a></li>
+						<li><a href="geoviz.html">Geo Visualizations</a></li>
 						<li><a href="toptalkers.html">Top Talkers</a></li>
 						<li>Descriptive Analysis
 							<ul class="drop2">
@@ -96,7 +105,7 @@
 		</form>
 		
 		<!-- Container for D3.js visualization -->
-		<div class="vizContainer"></div>
+		<div id= "vizContainer" class="vizContainer"></div>
 
 		<h2>Data Records</h2>
 		<!-- Text flow record data highlighter selection -->
@@ -223,6 +232,7 @@
 		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
 	</footer>
 
+	
 </body>
 
 </html>
