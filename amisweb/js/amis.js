@@ -10,6 +10,11 @@ var ukyBadPacketURL = "http://128.163.202.50:32001/API/badpacket/";			// UKY Gen
 var utepIPLookupURL = "http://engrapps.utep.edu/amis/gsr/getIPData.php?&param=";	// UTEP IP Lookup URL
 var utepIPDataURL = "http://engrapps.utep.edu/amis/scripts/ipdata.php?ip=";             // UTEP IP Data URL
 var utepVizDataURL = "http://127.0.0.1/scripts/getvizdata.php?taskID=";        // UTEP Get Viz Data URL
+var starlightTaskSubmissionURL = "http://165.124.33.141:32001/API/submit/";  // Starlight Task Submission URL (for throughput and tcp tests only)
+var starlightTaskListURL = "http://165.124.33.141:32001/API/list/";
+var starlightTaskResultsURL = "http://165.124.33.141:32001/API/results/";  // Starlight Task Submission URL (for throughput and tcp tests only)
+var starlightTaskTerminateURL = "http://165.124.33.141:32001/API/close/"; 
+
 
 var netflowData;
 var netflowDataLength;
@@ -53,6 +58,7 @@ function initPerfMonPage()
 	
 	// Update the time stamp fields with current time for Start time 
 	var now = new Date();
+	now.setHours(now.getHours()+2) // update for Eastern time
 	var nowYear = now.getFullYear(); var nowMonth = now.getMonth() + 1; var nowDay = now.getDate();
 	var nowHours = now.getHours(); var nowMinutes = now.getMinutes(); var nowSeconds = now.getSeconds();
 	if(nowMonth < 10)
@@ -79,6 +85,10 @@ function initPerfMonPage()
 	//alert(startTime);
 	// and 5 minutes later for Stop Time
 	nowMinutes = now.getMinutes() + 5;
+	if(nowMinutes >= 60)
+    {
+	    nowMinutes = nowMinutes - 60;
+    }
 	if(nowMinutes < 10)
 	{
 		nowMinutes = "0" + nowMinutes;
@@ -92,6 +102,8 @@ function initPerfMonPage()
 	$('#netFlowStop').val(stopTime);
 	$('#pktTraceStart').val(startTime);
 	$('#pktTraceStop').val(stopTime);
+	$('#tcpFlowStart').val(startTime);
+	$('#tcpFlowEnd').val(stopTime);
 }
 
 function getIPData()
@@ -380,6 +392,10 @@ function perfMonitorTypeChange()
 		pageElement.style.display = "none";
 		pageElement = document.getElementById('flowMonFields');
 		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
+		pageElement.style.display = "none";
 		break;
 	case 'netFlow':
 		pageElement = document.getElementById('netFlowFields');
@@ -393,6 +409,10 @@ function perfMonitorTypeChange()
 		pageElement = document.getElementById('trafficMatrixFields');
 		pageElement.style.display = "none";
 		pageElement = document.getElementById('flowMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
 		pageElement.style.display = "none";
 		break;
 	case 'pktTrace':
@@ -408,6 +428,10 @@ function perfMonitorTypeChange()
 		pageElement.style.display = "none";
 		pageElement = document.getElementById('flowMonFields');
 		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
+		pageElement.style.display = "none";
 		break;
 	case 'linkGranularity':
 		pageElement = document.getElementById('netFlowFields');
@@ -421,6 +445,10 @@ function perfMonitorTypeChange()
 		pageElement = document.getElementById('trafficMatrixFields');
 		pageElement.style.display = "none";
 		pageElement = document.getElementById('flowMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
 		pageElement.style.display = "none";
 		break;
 	case 'trafficMatrix':
@@ -436,6 +464,10 @@ function perfMonitorTypeChange()
 		pageElement.style.display = "inline";
 		pageElement = document.getElementById('flowMonFields');
 		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
+		pageElement.style.display = "none";
 		break;
 	case 'flowGranularity':
 		pageElement = document.getElementById('netFlowFields');
@@ -449,6 +481,46 @@ function perfMonitorTypeChange()
 		pageElement = document.getElementById('trafficMatrixFields');
 		pageElement.style.display = "none";
 		pageElement = document.getElementById('flowMonFields');
+		pageElement.style.display = "inline";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
+		pageElement.style.display = "none";
+		break;
+	case 'throughputTest':
+		pageElement = document.getElementById('netFlowFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('pktValidationFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('pktTraceFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('linkMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('trafficMatrixFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('flowMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "inline";
+		pageElement = document.getElementById('tcpFlowFields');
+		pageElement.style.display = "none";
+		break;
+	case 'tcpFlow':
+		pageElement = document.getElementById('netFlowFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('pktValidationFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('pktTraceFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('linkMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('trafficMatrixFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('flowMonFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('throughputFields');
+		pageElement.style.display = "none";
+		pageElement = document.getElementById('tcpFlowFields');
 		pageElement.style.display = "inline";
 		break;
 	default:
@@ -649,6 +721,12 @@ function submitPerfMonTask()
 	case 'flowGranularity':
 		alert("Submitting flow task");
 		break;
+	case 'throughputTest':
+		submitThroughputTestTask();
+		break;
+	case 'tcpFlow':
+		submitTcpTestTask();
+		break;
 	}
 }
 
@@ -710,6 +788,46 @@ function submitNetFlowTask()
 	//alert(taskMsg);
 }
 
+function submitThroughputTestTask()
+{
+	// Submit the throughput test task (say that ten times fast)
+	var testDuration = String($('#throughputDuration').val());
+	
+	var taskMsg = "perfSONAR_Throughput "+$('#throughputSrc').val()+" "+$('#throughputDst').val()+" "+testDuration/* +" localhost 5672 guest guest amq.direct" */;
+	// "path_to_the_code src_addr dst_addr duration_time localhost 5672 guest guest amq.direct"
+	
+	// Send the task string to UKY server using a GET method via AJAX
+	$.ajax(
+	{
+		type: "GET",
+		url: starlightTaskSubmissionURL+taskMsg,
+		dataType: "text",
+		success: submitTaskSuccess,
+		error: submitTaskError
+	}
+	);	
+	//alert(taskMsg);
+}
+
+function submitTcpTestTask()
+{
+	var taskMsg = "amis_argus "+$('#tcpFlowStart').val()+" "+$('#tcpFlowEnd').val()+" "+$('#tcpSrcAddr').val()+" "+$('#tcpDstAddr').val()
+				+" "+$('#tcpProto').val()+" "+$('#tcpSrcPort').val()+" "+$('#tcpDstPort').val()/* +" localhost 5672 guest guest amq.direct" */;
+	// "path_to_the_code start_time end_time src_addr dst_addr protocol src_port dst_port localhost 5672 guest guest amq.direct"
+	
+	// Send the task string to UKY server using a GET method via AJAX
+	$.ajax(
+	{
+		type: "GET",
+		url: starlightTaskSubmissionURL+taskMsg,
+		dataType: "text",
+		success: submitTaskSuccess,
+		error: submitTaskError
+	}
+	);	
+	//alert(taskMsg);
+}
+
 function submitTaskSuccess(data,textStatus,jqXHR)
 {
 	if(data == null)
@@ -746,11 +864,17 @@ function getTaskList()
 
 function getTaskListSelect()
 {
+	if(!$('[name="location"]').is(':checked')){
+		alert("Please select a location");
+		return;
+	}
+	URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskListURL : starlightTaskListURL;
+	
 	// Send the task list command to UKY server using a GET method via AJAX
 	$.ajax(
 	{
 		type: "GET",
-		url: ukyTaskListURL,
+		url: /* ukyTaskListURL */URL,
 		dataType: "json",
 		success: getTaskListSelectSuccess,
 		error: getTaskListError
@@ -764,7 +888,7 @@ function getTaskListSuccess(data,textStatus,jqXHR)
 {
 	if(data == null)
 	{
-		$('#displayMsg').text("The data from UKY server was null, ["+textStatus+" "+jqXHR.status+"]");	
+		$('#displayMsg').text("The data from server was null, ["+textStatus+" "+jqXHR.status+"]");	
 	}
 	else
 	{
@@ -816,6 +940,8 @@ function getTaskListSelectSuccess(data,textStatus,jqXHR)
         	$('#displayMsg').text('No tasks.');
             var html = '';
             $('#taskList').html('');
+            var html2 = '';
+            $('.taskListTable').html(html2);
 		}
 	}
 
@@ -823,8 +949,7 @@ function getTaskListSelectSuccess(data,textStatus,jqXHR)
 
 function getTaskListError(data)
 {
-	$('#displayMsg').text("[error function invoked]: Error retrieving task list, response text from server: "+data.responseText+", data = "+data);
-	alert("JSON = ",JSON.stringify(data));
+	$('#displayMsg').text("Error retrieving task list, response text from server: "+data.responseText+", data = "+data);
 }
 
 function getTaskResults()
@@ -835,11 +960,12 @@ function getTaskResults()
     } 
     else 
     {
+		URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskResultsURL : starlightTaskResultsURL;
     	// Send the task results command to UKY server using a GET method via AJAX
     	$.ajax(
     	{
     		type: "GET",
-    		url: ukyTaskResultsURL+$('#taskList').val(),
+    		url: URL+$('#taskList').val(),
     		dataType: "json",
     		success: getTaskResultsSuccess,
     		error: getTaskResultsError
@@ -854,7 +980,10 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
 {
 	var src_app_name;
 	var dst_app_name;
-
+	d3.select("#vizContainer svg").remove();
+	d3.select("#vizContainer2 svg").remove();
+	$('#dataVizSelect').find('option').remove().end();
+	
     $('#displayMsg').text('Processing received task results.');
     
 	if(data == null)
@@ -873,6 +1002,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
         if (data.length == 0) 
         {
           $('.displayText').append('No data found...');
+		  console.log("no data found");
         } 
         else 
         {
@@ -882,12 +1012,13 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             html += '<table border="1"><thead><tr><th>Task ID</th><th>Start</th><th>End</th><th>Program</th><th>Arguments</th><th>State</th><th>Issued</th></thead><tbody>';
 			html += '<tr><td>' + data.exchange + '</td><td>' + data.start + '</td><td>' + data.end + '</td><td>' + data.program + '</td><td>' + ((data.args != "") ? data.args : "none") + '</td><td>' + data.state + '</td><td>' + data.issued + '</td></tr>';
 			html += '</tbody></table>';
-            html += '<u><b>Logs</b></u><br>';
+            html += '<u><b>Logs</b></u></br>';
             if (data.logs.length == 0) {
               html += 'No logs found...<br>';
+			  console.log("no logs found")
             } else {
               $.each(data.logs, function (i, v) {
-                html += v + '<br>';
+                html += v + '</br>';
               });
             }
             $('.displayText').html(html);
@@ -896,6 +1027,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             html = '';
             if (data.results.length == 0) {
             	html += 'No measurement data...<br>';
+				console.log("no measurement data found");
             } 
             else 
             {
@@ -964,9 +1096,9 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             		html += '<table border="1"><thead>';
             		html += '<tr><th>Instr. Loc.</th>';
             		// Check which fields are in the results object
-            		if(data.results[0].Netflow.Sys_Time != undefined)
+            		if(data.results[0].Netflow.sys_time != undefined)
             		{
-        				html += '<th>Sys Time</th>';
+        				html += '<th>SysUptime</th>';
             		}
             		if(data.results[0].Netflow.unix_secs != undefined)
             		{
@@ -1029,6 +1161,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             		}
             		html += '</thead><tbody>';
             		$.each(data.results, function (i, v) {
+                        var instrumentBootTime = 0;       // AMIS instrument boot time in seconds
             			html += '<tr>';
             			html += '<td>'+data.results[i].Machine_Name+'</td>';
             			bytesArray[i] = 0;
@@ -1036,9 +1169,9 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             			srcAppArray[i] = '';
             			dstAppArray[i] = '';
             			protocolArray[i] = '';
-                		if(data.results[i].Netflow.Sys_Time != undefined)
+                		if(data.results[i].Netflow.sys_time != undefined)
                 		{
-                			var day = moment.unix(Number(data.results[i].Netflow.Sys_Time));
+                			var day = moment.unix(Number(data.results[i].Netflow.sys_time));
             				html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';
                 		}
                         if(data.results[i].Netflow.unix_secs != undefined)
@@ -1046,15 +1179,33 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
                             var day = moment.unix(Number(data.results[i].Netflow.unix_secs));
                             html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';
                         }
+                        if((data.results[i].Netflow.sys_time != undefined) && (data.results[i].Netflow.unix_secs != undefined))
+                        {
+                            instrumentBootTime = data.results[i].Netflow.unix_secs - data.results[i].Netflow.sys_time/1000
+                        }
                         if(data.results[i].Netflow.first != undefined)
                         {
-                            var day = moment.unix(Number(data.results[i].Netflow.first));
-                            html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';
+                            if(instrumentBootTime > 0)
+                            {
+                                var day = moment.unix(Number(instrumentBootTime + data.results[i].Netflow.first/1000));
+                                html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';                            
+                            }
+                            else
+                            {
+                                html += '<td>'+data.results[i].Netflow.first+' usec</td>';
+                            }
                         }
                         if(data.results[i].Netflow.last != undefined)
                         {
-                            var day = moment.unix(Number(data.results[i].Netflow.last));
-                            html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';
+                            if(instrumentBootTime > 0)
+                            {
+                                var day = moment.unix(Number(instrumentBootTime + data.results[i].Netflow.last/1000));
+                                html += '<td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td>';                            
+                            }
+                            else
+                            {
+                                html += '<td>'+data.results[i].Netflow.last+' usec</td>';
+                            }
                         }
                 		if(data.results[i].Netflow.srcaddr != undefined)
                 		{
@@ -1175,6 +1326,138 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             			html += '<tr><td>'+v.Machine_Name+'</td><td>'+day.format("YYYYMMDD HH:mm:ss.SSS")+'</td><td>'+v.Sequence_Number+'</td><td>'+v.Packet_Size+'</td></tr>';
             			bytesArray[i] = Number(v.Packet_Size);
             		});
+					break;
+				case 'perfSONAR_Throughput': //throughput test
+					console.log(data);
+					/* {"src_addr":"SPACESONAR.MIT.EDU",
+					 "dst_addr":"164.58.16.98",
+					 "throughput":"0.9Gbps"} */
+					var resultsTable = "<table id='resultsTable' border='1'><tr><th>Source Address</th><th>Destination Address</th><th>Throughput</th></tr></table>"
+					var row = "";
+					$('.displayText').append(resultsTable);
+					resultsTable = document.getElementById("resultsTable");
+					$.each(data.results, function (i, v) {
+						row = resultsTable.insertRow(i+1); // the first row is the header
+						cell1 = row.insertCell(0);
+						cell1.innerHTML = data.results[i].src_addr;
+						cell2 = row.insertCell(1);
+						cell2.innerHTML = data.results[i].dst_addr;
+						cell3 = row.insertCell(2);
+						cell3.innerHTML = data.results[i].throughput;
+					});
+					break;
+				case 'amis_argus': //tcp analysis
+					var resultsTable = "<table id='resultsTable' border='1'><tr><th>Source IP</th><th>Destination IP</th><th>Protocol</th><th>Source Port</th><th>Destination Port</th><th>TCP Receive Window Size</th><th>Packets Lost or Retransmitted</th><th>% Packets Lost or Retransmitted</th><th>Load</th></tr></table>";
+					var row = "";
+					var items = [{"value":"dwin", "text":"TCP Window Size"}, {"value": "loss", "text": "Packet Loss/Retransfer"}, {"value": "ploss", "text": "Percent Loss/Retransfer"},
+								 {"value": "load", "text": "Load"}];
+					$('.displayText').append(resultsTable);
+					resultsTable = document.getElementById("resultsTable");
+					$.each(data.results, function (i, v) {
+						row = resultsTable.insertRow(i+1); // the first row is the header
+						cell1 = row.insertCell(0);
+						cell1.innerHTML = data.results[i].src_ip;
+						cell2 = row.insertCell(1);
+						cell2.innerHTML = data.results[i].dst_ip;
+						cell3 = row.insertCell(2);
+						cell3.innerHTML = data.results[i].proto;
+						cell4 = row.insertCell(3);
+						cell4.innerHTML = data.results[i].sport;
+						cell5 = row.insertCell(4);
+						cell5.innerHTML = data.results[i].dport;
+						cell6 = row.insertCell(5);
+						cell6.innerHTML = data.results[i].dwin+"B";
+						cell7 = row.insertCell(6);
+						cell7.innerHTML = data.results[i].loss;
+						cell8 = row.insertCell(7);
+						cell8.innerHTML = data.results[i].ploss+"%";
+						cell9 = row.insertCell(8);
+						cell9.innerHTML = data.results[i].load+"bps";
+					});
+					$('#dataVizSelect').find('option').remove().end();
+					$.each(items, function (i, item) {
+						$('#dataVizSelect').append($('<option>', { 
+							value: item.value,
+							text : item.text 
+						}));
+					});
+					$('#dataVizSelect').on("change", function(e){
+						switch (e.target[e.target.selectedIndex].value){
+							case "dwin":
+								var list = [];
+								var plotData = [];
+								for (var i = 1; i <= data.results.length; i++) {
+									list.push(i);
+									number = data.results[i-1].dwin;
+									prefix = number.substring(number.length - 1);
+									number = +number.substring(0, number.length - 1);
+									switch (prefix){
+										case "K":
+											number *= 1000;
+											break;
+										case "M":
+											number *= 1000000;
+											break;
+										case "G":
+											number *= 1000000000;
+											break;
+										default:
+											break;
+									}
+									plotData.push(number);					
+								}
+								plotHistogramRaw(0.1, "Time", "TCP Receive Window Size", list, plotData, "#vizContainer2");
+								break;
+							case "loss":
+								var list = [];
+								var plotData = [];
+								for (var i = 1; i <= data.results.length; i++) {
+									list.push(i);
+									number = +data.results[i-1].loss;
+									plotData.push(number);					
+								}
+								plotHistogramRaw(0.1, "Time", "TCP Receive Window Size", list, plotData, "#vizContainer2");
+								break;
+							case "ploss":
+								var list = [];
+								var plotData = [];
+								for (var i = 1; i <= data.results.length; i++) {
+									list.push(i);
+									number = +data.results[i-1].ploss;
+									plotData.push(number);					
+								}
+								plotHistogramRaw(0.1, "Time", "TCP Receive Window Size", list, plotData, "#vizContainer2");
+								break;
+							case "load":
+								var list = [];
+								var plotData = [];
+								for (var i = 1; i <= data.results.length; i++) {
+									list.push(i);
+									number = data.results[i-1].load;
+									prefix = number.substring(number.length - 1);
+									number = +number.substring(0, number.length - 1);
+									switch (prefix){
+										case "K":
+											number *= 1000;
+											break;
+										case "M":
+											number *= 1000000;
+											break;
+										case "G":
+											number *= 1000000000;
+											break;
+										default:
+											break;
+									}
+									plotData.push(number);					
+								}
+								plotHistogramRaw(0.1, "Time", "Load", list, plotData, "#vizContainer2");
+								break;
+							default:
+								break;
+						}
+					});
+					break;
         		default:
         			break;
             	}
@@ -1197,7 +1480,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             	default:
             		break;
             	}
-    			vizChange();        	
+    			//vizChange();        	
         	}
             $('#displayMsg').text('');
         }
@@ -1238,7 +1521,7 @@ function getTaskResultsGeoViz()
 function getTaskResultsGeoVizSuccess(data,textStatus,jqXHR)
 {
     // For now just display the response in a pop-up
-    alert(data.continentLbl);
+    alert("JSON = ",JSON.stringify(data.continentLbl));
 }
 
 function getTaskResultsGeoVizError(data)
@@ -1255,11 +1538,12 @@ function terminateTask()
     } 
     else 
     {
+		URL = (document.getElementById("ukyresultscheck").checked)? ukyTaskTerminateURL : starlightTaskTerminateURL;
     	// Send the task terminate command to UKY server using a GET method via AJAX
     	$.ajax(
     	{
     		type: "GET",
-    		url: ukyTaskTerminateURL+$('#taskList').val(),
+    		url: URL+$('#taskList').val(),
     		dataType: "text",
     		success: terminateTaskSuccess,
     		error: terminateTaskError
@@ -1805,7 +2089,6 @@ function longestPrefixMatchIPLookup(ipAddress)
 	// To be completed! -MPM
 	alert("Longest prefix match IP address lookup to be completed!");
 }
-
 var ipprotodata = [
                    	  {
                 	    "ip_proto": 0,
@@ -72114,4 +72397,4 @@ var portnumdata = [
                      "name":"matahari",
                      "description":"Matahari Broker"
                    }
-                 ];
+                 ];;
