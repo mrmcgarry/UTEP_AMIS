@@ -9,7 +9,6 @@
 
 function plotHistogram( barPadding, xLabel, yLabel, data, bins ) {
 	
-	console.log(data);
 	d3.select("#vizContainer svg").remove();
 
 	//if(isNaN(data[0]/data[1]))
@@ -170,7 +169,7 @@ function plotHistogram( barPadding, xLabel, yLabel, data, bins ) {
 			d3.select("#labelCont").remove(); 	
 		});
 		
-		if(!+$('rect.bars').eq(index).attr('height')) console.log(index+": "+"empty rectangle");
+		if(!+$('rect.bars').eq(index).attr('height')) //console.log(index+": "+"empty rectangle");
 	});
 	////////////////////// RENDER GRID ///////////////////////
 	renderGrid( innerWidth, 0 );	// renders the grid, but only draws horizontal lines

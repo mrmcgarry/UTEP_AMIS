@@ -1333,7 +1333,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             		});
 					break;
 				case 'perfSONAR_Throughput': //throughput test
-					console.log(data);
+					//console.log(data);
 					/* {"src_addr":"SPACESONAR.MIT.EDU",
 					 "dst_addr":"164.58.16.98",
 					 "throughput":"0.9Gbps"} */
