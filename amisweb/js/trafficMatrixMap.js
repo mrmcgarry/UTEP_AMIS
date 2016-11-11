@@ -362,7 +362,7 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 }
 
 function buildHash ( data, matrix, matrixLabel, coordinateData, options ) {
-	
+	console.log(data);
 	var results = [];
 		
 	function searchCoordinate (term) {
@@ -390,13 +390,16 @@ function buildHash ( data, matrix, matrixLabel, coordinateData, options ) {
 				results.push({ SrcLabel: data[matrixLabel][y], DstLabel: data[matrixLabel][x], Bytes: data[matrix][y][x],
 					SrcLatitude: data['asnumLatitude'][y], 
 					SrcLongitude: data['asnumLongitude'][y],
+					SrcAS: data['asLbl'][y],
 					DstLatitude: data['asnumLatitude'][x],
 					DstLongitude: data['asnumLongitude'][x],
+					DstAS: data['asLbl'][x],
 					/* SrcCoords: searchCoordinate(data[matrixLabel][y]),
 					DstCoords: searchCoordinate(data[matrixLabel][x]), */
 					X: x, Y: y, offset: (x > y)? 10: 0,
 					SrcPort: { Bytes: (options.getHistData)? ((options.appNames)? ((data['asMatrixSrcAppHist'])? data['asMatrixSrcAppHist'][y][x] : 'undefined') : ((data['asMatrixSrcPortHist'])? data['asMatrixSrcPortHist'][y][x] : 'undefined')) : 'undefined', Ports: (options.getHistData)? ((options.appNames)? data['srcAppNames'] : data['srcPortNumbers']) : 'undefined' },
-					DstPort: { Bytes: (options.getHistData)? ((options.appNames)? ((data['asMatrixDstAppHist'])? data['asMatrixDstAppHist'][y][x] : 'undefined') : ((data['asMatrixDstPortHist'])? data['asMatrixDstPortHist'][y][x] : 'undefined')) : 'undefined', Ports: (options.getHistData)? ((options.appNames)? data['dstAppNames'] : data['dstPortNumbers']) : 'undefined' }
+					DstPort: { Bytes: (options.getHistData)? ((options.appNames)? ((data['asMatrixDstAppHist'])? data['asMatrixDstAppHist'][y][x] : 'undefined') : ((data['asMatrixDstPortHist'])? data['asMatrixDstPortHist'][y][x] : 'undefined')) : 'undefined', Ports: (options.getHistData)? ((options.appNames)? data['dstAppNames'] : data['dstPortNumbers']) : 'undefined' },
+					HashType: 'Organization'
 				});
 			}
 		}
@@ -461,6 +464,7 @@ function buildHash ( data, matrix, matrixLabel, coordinateData, options ) {
 												:data['DstPortNumbers']
 										)
 									   :'undefined' },
+					HashType: 'Continent/Country'
 				});
 			}
 		}
@@ -523,6 +527,7 @@ function renderMap ( container, viewlat, viewlong, zoom ) {
 
 function drawTrafficPaths ( trafficData, map, options ) {
 	
+	console.log(trafficData);
 	var weightScale = d3.scale.linear()
 		.domain([d3.min(trafficData, function (d){ return d.Bytes; }), d3.max(trafficData, function (d){ return d.Bytes; })]) 
 		.range([options.weightRange[0], options.weightRange[1]]),
@@ -690,49 +695,104 @@ function drawTrafficPaths ( trafficData, map, options ) {
 	i = 0;
 	while(trafficData[i].Y === 0)
 	{
-		markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
-			var polylines = bindPolyline(e),
-				offsetvalue;
-				
-			var myIcon = L.icon({
-					iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
-					iconSize: [25, 41],
-					iconAnchor: [12.5, 41],
-				});
-			//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
-			for(var i=0;i<polylines.length;i++){
-				offsetvalue = polylines[i].options.offset;
-				polylines[i].setStyle({
-					opacity: 0.8
-				});
-				
-				animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
-					icon: myIcon,
-					autostart: true,
-					loop: true
-				}));
+		if (trafficData[i].HashType === "Organization"){
+			orgLogo = getmarker(trafficData[i].DstAS);
+			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200, icon: orgLogo }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
+				var polylines = bindPolyline(e),
+					offsetvalue;
+					
+				var myIcon = L.icon({
+						iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
+						iconSize: [25, 41],
+						iconAnchor: [12.5, 41],
+					});
+				//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
+				for(var i=0;i<polylines.length;i++){
+					offsetvalue = polylines[i].options.offset;
+					polylines[i].setStyle({
+						opacity: 0.8
+					});
+					
+					animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
+						icon: myIcon,
+						autostart: true,
+						loop: true
+					}));
+					for (var j=0;j<animatedMarker.length;j++)
+						animatedMarker[j].addTo(map);
+				}
+			})
+			.on('popupclose', function(e){
+				//console.log(animatedMarker);
 				for (var j=0;j<animatedMarker.length;j++)
-					animatedMarker[j].addTo(map);
-			}
-		})
-		.on('popupclose', function(e){
-			//console.log(animatedMarker);
-			for (var j=0;j<animatedMarker.length;j++)
-				map.removeLayer(animatedMarker[j]);
-			animatedMarker = [];
-			var polylines = bindPolyline(e);
-			for(var i=0;i<polylines.length;i++){
-				polylines[i].setStyle({
-					opacity: 0.06
-				});
-			}
-		});
+					map.removeLayer(animatedMarker[j]);
+				animatedMarker = [];
+				var polylines = bindPolyline(e);
+				for(var i=0;i<polylines.length;i++){
+					polylines[i].setStyle({
+						opacity: 0.06
+					});
+				}
+			});
+		}
+		else{
+			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
+				var polylines = bindPolyline(e),
+					offsetvalue;
+					
+				var myIcon = L.icon({
+						iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
+						iconSize: [25, 41],
+						iconAnchor: [12.5, 41],
+					});
+				//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
+				for(var i=0;i<polylines.length;i++){
+					offsetvalue = polylines[i].options.offset;
+					polylines[i].setStyle({
+						opacity: 0.8
+					});
+					
+					animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
+						icon: myIcon,
+						autostart: true,
+						loop: true
+					}));
+					for (var j=0;j<animatedMarker.length;j++)
+						animatedMarker[j].addTo(map);
+				}
+			})
+			.on('popupclose', function(e){
+				//console.log(animatedMarker);
+				for (var j=0;j<animatedMarker.length;j++)
+					map.removeLayer(animatedMarker[j]);
+				animatedMarker = [];
+				var polylines = bindPolyline(e);
+				for(var i=0;i<polylines.length;i++){
+					polylines[i].setStyle({
+						opacity: 0.06
+					});
+				}
+			});
+		}
 		thisLayer.addLayer(markerList[i]);
 		i++;
 	}
 	
 	return thisLayer;
 
+}
+
+function getmarker(AS)						//function takes in AS# , Latititude, Longitude. in that order
+{													//function will look thru folder named images
+	var imgname= "../images/AS_images/"+AS+ ".png";				//concatonate to format (images/AS.png)
+	var marker = L.icon({
+		iconUrl:imgname,
+		iconSize:[30,35],							//adjust icon size [a,b]
+		iconAnchor:[15,35],						//anchor must be [a*.5,b]
+		popupAnchor:[0,-35]						//popup anchor is optional
+	})
+	
+	return marker;
 }
 
 function drawMatrix ( container, trafficData ) {
