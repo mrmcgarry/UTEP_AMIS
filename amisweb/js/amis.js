@@ -1017,15 +1017,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             html += '<table border="1"><thead><tr><th>Task ID</th><th>Start</th><th>End</th><th>Program</th><th>Arguments</th><th>State</th><th>Issued</th></thead><tbody>';
 			html += '<tr><td>' + data.exchange + '</td><td>' + data.start + '</td><td>' + data.end + '</td><td>' + data.program + '</td><td>' + ((data.args != "") ? data.args : "none") + '</td><td>' + data.state + '</td><td>' + data.issued + '</td></tr>';
 			html += '</tbody></table>';
-            html += '<u><b>Logs</b></u></br>';
-            if (data.logs.length == 0) {
-              html += 'No logs found...<br>';
-			  console.log("no logs found")
-            } else {
-              $.each(data.logs, function (i, v) {
-                html += v + '</br>';
-              });
-            }
+            
             $('.displayText').html(html);
 
             // Display task data
@@ -1337,7 +1329,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
 					/* {"src_addr":"SPACESONAR.MIT.EDU",
 					 "dst_addr":"164.58.16.98",
 					 "throughput":"0.9Gbps"} */
-					var resultsTable = "<table id='resultsTable' border='1'><tr><th>Source Address</th><th>Destination Address</th><th>Throughput</th></tr></table>"
+					var resultsTable = "<br/><u><strong>Results</u></strong><br/><table id='resultsTable' border='1'><tr><th>Source Address</th><th>Destination Address</th><th>Throughput</th></tr></table><br/>"
 					var row = "";
 					$('.displayText').append(resultsTable);
 					resultsTable = document.getElementById("resultsTable");
@@ -1352,7 +1344,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
 					});
 					break;
 				case 'amis_argus': //tcp analysis
-					var resultsTable = "<table id='resultsTable' border='1'><tr><th>Source IP</th><th>Destination IP</th><th>Protocol</th><th>Source Port</th><th>Destination Port</th><th>TCP Receive Window Size</th><th>Packets Lost or Retransmitted</th><th>% Packets Lost or Retransmitted</th><th>Load</th></tr></table>";
+					var resultsTable = "</br><u><strong>Results</u></strong><br/><table id='resultsTable' border='1'><tr><th>Source IP</th><th>Destination IP</th><th>Protocol</th><th>Source Port</th><th>Destination Port</th><th>TCP Receive Window Size</th><th>Packets Lost or Retransmitted</th><th>% Packets Lost or Retransmitted</th><th>Load</th></tr></table><br/>";
 					var row = "";
 					var items = [{"value":"dwin", "text":"TCP Window Size"}, {"value": "loss", "text": "Packet Loss/Retransfer"}, {"value": "ploss", "text": "Percent Loss/Retransfer"},
 								 {"value": "load", "text": "Load"}];
@@ -1467,6 +1459,7 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
         			break;
             	}
             }
+			
             $('.measurementData').html(html);
             netflowDataLength = data.results.length;
             if(netflowDataLength > 0)
@@ -1487,6 +1480,18 @@ function getTaskResultsSuccess(data,textStatus,jqXHR)
             	}
     			//vizChange();        	
         	}
+			
+			html += '<u><b>Logs</b></u></br>';
+            if (data.logs.length == 0) {
+              html += 'No logs found...<br>';
+			  console.log("no logs found")
+            } else {
+              $.each(data.logs, function (i, v) {
+                html += v + '</br>';
+              });
+            }
+			$('.displayLogs').html(html);
+			
             $('#displayMsg').text('');
         }
 	}

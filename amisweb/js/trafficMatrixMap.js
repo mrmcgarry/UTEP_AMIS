@@ -697,7 +697,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 	{
 		if (trafficData[i].HashType === "Organization"){
 			orgLogo = getmarker(trafficData[i].DstAS);
-			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200, icon: orgLogo }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
+			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200, icon: orgLogo }).bindPopup(trafficData[i].DstLabel+", AS Number: "+trafficData[i].DstAS).on('popupopen', function(e){
 				var polylines = bindPolyline(e),
 					offsetvalue;
 					
