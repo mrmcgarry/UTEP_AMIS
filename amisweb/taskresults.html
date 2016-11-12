@@ -64,13 +64,13 @@
 	<main>
 		<fieldset>
 			<legend>Measurement Task Data Retrieval and Management</legend>
-			<form action="">
-				<label>UKY Location</label><input type="radio" name="location" checked="true" id="ukyresultscheck"></input>
-				<label>Starlight Location</label><input type="radio" name="location" id="starresultscheck"></input><br/>
-			</form>
+			<label>Instrument Location:</label>
+			<input type="radio" name="location" checked="true" id="ukyresultscheck"></input><label>U Kentuky</label>
+			<input type="radio" name="location" id="starresultscheck"></input><label>Starlight</label><br/>
     		<input type="submit" onclick="getTaskListSelect();" value="Get Task List" />&nbsp;
     		<select id="taskList"></select><br/>
     		<div class="taskListTable"></div>
+			<p id="displayMsg"></p>
     		<input type="submit" onclick="getTaskResults();" value="Obtain Task Results" /><br/>
     		<input type="submit" onclick="terminateTask();" value="Terminate Measurement Task" /><br/>
     	</fieldset>
@@ -79,7 +79,7 @@
     	    <input type="submit" onclick="generateBadPackets();" value="Generate 10 Bad Packets" /><br/>
     	</fieldset>
 		
-		<p id="displayMsg"></p>
+		
 		
 		<fieldset>
 			<legend>Task Measurement Data</legend>
@@ -103,6 +103,7 @@
 		<fieldset>
 			<legend>Task Status Information</legend>
     		<div class="displayText"></div>
+			<div class="displayLogs"></div>
 		</fieldset>
 		
 	</main>
