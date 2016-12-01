@@ -1,3 +1,7 @@
+var _RawFlowData = [];
+var _TrafficHash = [];
+var _AvailMarkerIcon = 0;
+
 queue()	// Will load the following instructions until after the page has loaded
 
 .defer(d3.csv, "../data/countries.csv", function(d) {	// d3.csv will be the function that will be called when the page has finished loading
@@ -27,10 +31,63 @@ queue()	// Will load the following instructions until after the page has loaded
 			{latitude: -21.0002179, longitude: -61.0006565, name: "South America"},
 		];
 	
+	getDataList();
+	
 	var mymap = renderMap("mapContainer",0,0,2);
 	
 	getTrafficData("instrumentData2", mymap, "instrumentData2", countryCoordData, continentCoordData);
 });
+
+function getDataList()
+{
+    // Obtain a list of plottable JSON objects from the data folder
+    $.ajax(
+    {
+        type: "GET",
+        url: "data/dataList.txt",
+        dataType: "text",
+        success: getDataListSuccess,
+        error: getDataListError,
+		statusCode: {
+			404: function(){
+				alert("File not found");
+			}
+		}
+    }
+    );  
+
+}
+
+function getDataListSuccess(data,textStatus,jqXHR)
+{ 
+    var dataArray = [];
+	if(data != null)
+    {
+		dataArray = data.split("\n"); // Make an array out of the contents of list
+		
+		$('#dataSel').find('option').remove().end();	// Remove all options in the select box
+		$.each(dataArray, function (i, item) {			// Populate select box with the items in the data list
+			$('#dataSel').append($('<option>', { 
+				value: item,
+				text : item 
+			}));
+		});
+		
+		$('#dataSel').val('instrumentData2').change();
+		document.getElementById("dataSel").selectedIndex=1;
+		
+		$('#dataSel').off();
+		$('#dataSel').on('change', function(){			// When the dropdown changes, the load button will be "clicked"
+			//console.log($('#dataSel').val());
+			$('#loadButt').trigger('click');
+		});
+    }
+}
+
+function getDataListError(jqXHR,textStatus)
+{
+    alert("Error reading data list, no data retrieved.");
+}
 
 function getTrafficData(fileName, leafletMAP, previousDataset, countryCoordData, continentCoordData)
 {
@@ -44,6 +101,7 @@ function getTrafficData(fileName, leafletMAP, previousDataset, countryCoordData,
 		dataType: "json",
 		//success: getTrafficDataSuccess,
 		success: function(data) {
+			_RawFlowData = data;
 			makeTrafficLayer(data, leafletMAP, previousDataset, countryCoordData, continentCoordData);
 		},
 		error: getTrafficDataError,
@@ -108,7 +166,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		$('#loadButt').off();
 		$('#loadButt').prop('disabled', false);
 		$("#loadButt").on("click", function(e){
-			dataset = document.getElementById("dataSelTxt").value;
+			//dataset = document.getElementById("dataSelTxt").value;
+			dataset = $('#dataSel').val();
 			if(typeof prevdataset !== 'undefined'){
 				if (dataset === prevdataset){
 					dataset = prompt("Please select a different dataset:");
@@ -140,7 +199,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 				}
 			}
 			prevdataset = dataset;
-			document.getElementById("dataSelTxt").value=dataset;
+			//document.getElementById("dataSelTxt").value=dataset;
+			//$('#dataSel').val() = dataset;
 			$('#loadButt').prop('disabled', true);
 			$('#loadButt').off();
 			getTrafficData(dataset, map, prevdataset, countryCoordData, continentCoordData);
@@ -168,7 +228,9 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		$('#loadButt').off();
 		$('#loadButt').prop('disabled', false);
 		$("#loadButt").on("click", function(e){
-			dataset = document.getElementById("dataSelTxt").value;
+			//dataset = document.getElementById("dataSelTxt").value;
+			dataset = $('#dataSel').val();
+			
 			if(typeof prevdataset !== 'undefined'){
 				if (dataset === prevdataset){
 					dataset = prompt("Please select a different dataset:");
@@ -200,7 +262,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 				}
 			}
 			prevdataset = dataset;
-			document.getElementById("dataSelTxt").value=dataset;
+			//document.getElementById("dataSelTxt").value=dataset;
+			//$('#dataSel').val() = dataset;
 			$('#loadButt').prop('disabled', true);
 			$('#loadButt').off();
 			getTrafficData(dataset, map, prevdataset, countryCoordData, continentCoordData);
@@ -269,7 +332,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 	$('#loadButt').off();
 	$('#loadButt').prop('disabled', false);
 	$("#loadButt").one("click", function(e){
-		dataset = document.getElementById("dataSelTxt").value;
+		//dataset = document.getElementById("dataSelTxt").value;
+		dataset = $('#dataSel').val();
 		if(typeof prevdataset !== 'undefined'){
 			while (dataset === prevdataset){
 				dataset = prompt("Please select a different dataset:");
@@ -292,7 +356,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 			}
 		}
 		prevdataset = dataset;
-		document.getElementById("dataSelTxt").value=dataset;
+		//document.getElementById("dataSelTxt").value=dataset;
+		//$('#dataSel').val() = dataset;
 		$('#loadButt').prop('disabled', true);
 		$('#loadButt').off();
 		getTrafficData(dataset, map, prevdataset, countryCoordData, continentCoordData);
@@ -320,7 +385,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		$('#loadButt').off();
 		$('#loadButt').prop('disabled', false);
 		$("#loadButt").on("click", function(e){
-			dataset = document.getElementById("dataSelTxt").value;
+			//dataset = document.getElementById("dataSelTxt").value;
+			dataset = $('#dataSel').val();
 			if(typeof prevdataset !== 'undefined'){
 				if (dataset === prevdataset){
 					dataset = prompt("Please select a different dataset:");
@@ -352,7 +418,8 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 				}
 			}
 			prevdataset = dataset;
-			document.getElementById("dataSelTxt").value=dataset;
+			//document.getElementById("dataSelTxt").value=dataset;
+			//$('#dataSel').val() = dataset;
 			$('#loadButt').prop('disabled', true);
 			$('#loadButt').off();
 			getTrafficData(dataset, map, prevdataset, countryCoordData, continentCoordData);
@@ -362,8 +429,9 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 }
 
 function buildHash ( data, matrix, matrixLabel, coordinateData, options ) {
-	console.log(data);
+	//console.log(data);
 	var results = [];
+	_TrafficHash = [];
 		
 	function searchCoordinate (term) {
 		// SEARCH
@@ -470,7 +538,7 @@ function buildHash ( data, matrix, matrixLabel, coordinateData, options ) {
 		}
 	}
 	//console.log(results);
-	
+	_TrafficHash = results;
 	return results;
 }
 
@@ -602,7 +670,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 				var datax = e.target.options.data.SrcPort.Ports;
 				var datay = e.target.options.data.SrcPort.Bytes;
 				
-				plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay );
+				plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay, "#vizContainer" );
 				
 			});
 			thisLayer.addLayer(circlesList[i]);
@@ -636,7 +704,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 					var datax = e.target.options.data.SrcPort.Ports;
 					var datay = e.target.options.data.SrcPort.Bytes;
 					
-					plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay );
+					plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay, "#vizContainer" );
 					
 				});
 				thisLayer.addLayer(polyLineList[i]);
@@ -692,48 +760,118 @@ function drawTrafficPaths ( trafficData, map, options ) {
 		return searchResults;
 	}
 	
+	function getmarker2(AS)						//function takes in AS# , Latititude, Longitude. in that order
+	{													//function will look thru folder 
+		var imgPath= "../images/AS_images/"+AS+".png";
+		
+		$.ajax({
+			type: "GET",
+			url: imgPath,
+			dataType: "html",
+			success: function(){
+				console.log("Found image!");
+				_AvailMarkerIcon = 1;
+			},
+			error: function(){
+				_AvailMarkerIcon = 0;
+			},
+			async: false
+		});
+	}
+	
 	i = 0;
 	while(trafficData[i].Y === 0)
 	{
 		if (trafficData[i].HashType === "Organization"){
-			orgLogo = getmarker(trafficData[i].DstAS);
-			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200, icon: orgLogo }).bindPopup(trafficData[i].DstLabel+", AS Number: "+trafficData[i].DstAS).on('popupopen', function(e){
-				var polylines = bindPolyline(e),
-					offsetvalue;
-					
-				var myIcon = L.icon({
-						iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
-						iconSize: [25, 41],
-						iconAnchor: [12.5, 41],
+			getmarker2(trafficData[i].DstAS);
+			if(_AvailMarkerIcon === 1){
+				console.log("Logo found!");
+				
+				logoPath= "../images/AS_images/"+trafficData[i].DstAS+".png";
+				orgLogo = L.icon({
+						iconUrl:logoPath,
+						iconSize:[30,35],							//adjust icon size [a,b]
+						inconAnchor:[15,35],						//anchor must be [a*.5,b]
+						popupAnchor:[-3,-76]						//popup anchor is optional
 					});
-				//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
-				for(var i=0;i<polylines.length;i++){
-					offsetvalue = polylines[i].options.offset;
-					polylines[i].setStyle({
-						opacity: 0.8
-					});
-					
-					animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
-						icon: myIcon,
-						autostart: true,
-						loop: true
-					}));
+				
+				markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200, icon: orgLogo }).bindPopup(trafficData[i].DstLabel+", AS Number: "+trafficData[i].DstAS).on('popupopen', function(e){
+					var polylines = bindPolyline(e),
+						offsetvalue;
+						
+					var myIcon = L.icon({
+							iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
+							iconSize: [25, 41],
+							iconAnchor: [12.5, 41],
+						});
+					//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
+					for(var i=0;i<polylines.length;i++){
+						offsetvalue = polylines[i].options.offset;
+						polylines[i].setStyle({
+							opacity: 0.8
+						});
+						
+						animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
+							icon: myIcon,
+							autostart: true,
+							loop: true
+						}));
+						for (var j=0;j<animatedMarker.length;j++)
+							animatedMarker[j].addTo(map);
+					}
+				})
+				.on('popupclose', function(e){
+					//console.log(animatedMarker);
 					for (var j=0;j<animatedMarker.length;j++)
-						animatedMarker[j].addTo(map);
-				}
-			})
-			.on('popupclose', function(e){
-				//console.log(animatedMarker);
-				for (var j=0;j<animatedMarker.length;j++)
-					map.removeLayer(animatedMarker[j]);
-				animatedMarker = [];
-				var polylines = bindPolyline(e);
-				for(var i=0;i<polylines.length;i++){
-					polylines[i].setStyle({
-						opacity: 0.06
-					});
-				}
-			});
+						map.removeLayer(animatedMarker[j]);
+					animatedMarker = [];
+					var polylines = bindPolyline(e);
+					for(var i=0;i<polylines.length;i++){
+						polylines[i].setStyle({
+							opacity: 0.06
+						});
+					}
+				});
+			}
+			else{
+				markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel+", AS Number: "+trafficData[i].DstAS).on('popupopen', function(e){
+					var polylines = bindPolyline(e),
+						offsetvalue;
+						
+					var myIcon = L.icon({
+							iconUrl: 'http://geopole.free.fr/exemples/geoportail/jQGeoportail-0/img/marker-icon-purple.png',
+							iconSize: [25, 41],
+							iconAnchor: [12.5, 41],
+						});
+					//console.log(polylines[0].getLatLngs(), L.PolylineOffset.offsetLatLngs(polylines[0].getLatLngs(),10,map));
+					for(var i=0;i<polylines.length;i++){
+						offsetvalue = polylines[i].options.offset;
+						polylines[i].setStyle({
+							opacity: 0.8
+						});
+						
+						animatedMarker.push(L.Marker.movingMarker(L.PolylineOffset.offsetLatLngs(polylines[i].getLatLngs(),offsetvalue,map), [2000], {
+							icon: myIcon,
+							autostart: true,
+							loop: true
+						}));
+						for (var j=0;j<animatedMarker.length;j++)
+							animatedMarker[j].addTo(map);
+					}
+				})
+				.on('popupclose', function(e){
+					//console.log(animatedMarker);
+					for (var j=0;j<animatedMarker.length;j++)
+						map.removeLayer(animatedMarker[j]);
+					animatedMarker = [];
+					var polylines = bindPolyline(e);
+					for(var i=0;i<polylines.length;i++){
+						polylines[i].setStyle({
+							opacity: 0.06
+						});
+					}
+				});
+			}
 		}
 		else{
 			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
