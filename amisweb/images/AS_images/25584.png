@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2012 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at http://typo3.org/
+-->
+
+<base href="http://www.krput.edu.pl">
+<link rel="shortcut icon" href="http://www.krput.edu.pl/fileadmin/default/templates/css/j/krput/system/favicon.ico" type="image/png; charset=binary">
+<link rel="icon" href="http://www.krput.edu.pl/fileadmin/default/templates/css/j/krput/system/favicon.ico" type="image/png; charset=binary">
+
+<meta name="generator" content="TYPO3 4.7 CMS">
+
+<link rel="stylesheet" type="text/css" href="fileadmin/default/templates/css/screen.css?1468410097" media="screen, projection">
+<link rel="stylesheet" type="text/css" href="fileadmin/default/templates/css/agh-next-page.css?1465990074" media="screen, projection">
+<link rel="stylesheet" type="text/css" href="fileadmin/default/templates/css/print.css?1362048834" media="print">
+<link rel="stylesheet" type="text/css" href="typo3temp/stylesheet_8e19c6108b.css?1468413635" media="all">
+
+
+<script src="typo3conf/ext/ods_ajaxmailsubscription/res/jquery/jquery-1.4.4.min.js?1344587681" type="text/javascript"></script>
+<script src="typo3temp/javascript_757c080409.js?1468413635" type="text/javascript"></script>
+
+
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width; height=device-height; maximum-scale=1.4; initial-scale=1.0; user-scalable=yes" />
+<title>&nbsp;Konferencja Rektorów Polskich Uczelni Technicznych </title><style>#img-head {background: transparent url('fileadmin/default/templates/css/j/krput/system/bg-head_pl.jpg') no-repeat right 0px;} #top-menu {background: transparent url('fileadmin/default/templates/css/i/agh_nazwa_pl.png') no-repeat 80px 24px;}</style><link rel="stylesheet" href="fileadmin/default/templates/css/00_krput.css" type="text/css" media="screen, projection"/><link rel="stylesheet" href="typo3conf/ext/perfectlightbox/res/css/slightbox.css" type="text/css" media="screen,projection" /><script type="text/javascript" src="typo3conf/ext/perfectlightbox/res/js/prototype.1.7.0.yui.js"></script>
+<script type="text/javascript" src="typo3conf/ext/perfectlightbox/res/js/scriptaculous.js?load=effects,builder"></script><script type="text/javascript" src="typo3conf/ext/perfectlightbox/res/js/lightbox.2.0.5.yui.js"></script><script type="text/javascript">
+	LightboxOptions.borderSize = 10;
+	LightboxOptions.resizeSpeed = 400;
+	LightboxOptions.overlayOpacity = 0.8;
+	LightboxOptions.loop = true;
+	LightboxOptions.allowSave = false;
+	LightboxOptions.slideshowAutoplay = false;
+	LightboxOptions.slideshowInterval = 5000;
+	LightboxOptions.slideshowAutoclose = true;
+	LightboxOptions.labelImage = 'Image';
+	LightboxOptions.labelOf = 'of';</script>
+</head>
+<body>
+
+    <div id="outer">
+      <div id="hd">
+        <div id="top-menu">
+          <div>
+            <ul>
+    		<li><a href="mapa-strony/" title="Mapa strony" ><img src="fileadmin/default/templates/css/i/mapastr.png" title="mapa serwisu" alt="mapa serwisu"/></a></li>
+              
+            </ul>
+          </div>
+        </div>      
+        <div id="main-menu-top">
+        <a href="http://www.krput.edu.pl" title="Strona główna" target="_top" ><ins><p>Strona startowa portalu Akademii Górniczo-Hutniczej im. Stanisława Staszica w Krakowie</p></ins></a>
+          <ul><li><a href="wladze/"  >Władze</a></li><li><a href="cele/"  >Cele</a></li><li><a href="historia/"  >Historia</a></li><li><a href="uczelnie/"  >Uczelnie</a></li><li><a href="wspolpraca/"  >Współpraca</a></li></ul>
+          <form id="przeszukaj-www-agh" action="http://www.agh.edu.pl/search/search.html">                                                                                                         
+            <fieldset>                                                                                                                                                                       
+        	<legend id="legend" title="legend">Wyszukiwarka</legend>
+        	<label for="szukaj" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Imię</label>                                                                                                                                                  
+                <input type="text" id="szukaj" name="q" tabindex="1" />                                                                                                                                        
+                <input type="hidden" name="cx" value="016228847386251786336:ezdcl55hlwo" tabindex="0" />                                                                                                    
+                <input type="hidden" name="cof" value="FORID:11" tabindex="0" />                                                                                                                            
+                <input type="image" src="fileadmin/default/templates/css/i/search.png" alt="Szukaj" name="Szukaj" tabindex="2" />                                                                                                         
+            </fieldset>                                                                                                                                                                      
+        </form>  
+        </div>
+        <div id="hd-img-bg"></div>
+      </div>
+      <div id="hd-img">
+        <div id="img-head">
+        </div>
+
+        <div id="h-separator">&nbsp; 
+	 
+        </div>
+      </div>
+      <!--  zasadnicza część strony, treść główna  -->
+      <div id="bd">
+        <!-- lewa kolumna :: menu -->
+        <div class="l-col">
+        <ul class="l-col-menu"><li><a href=".">KRPUT</a><ul class="l-col-menu5"><li><a href="aktualnosci/"  >Aktualności</a></li><li><a href="regulamin/"  >Regulamin</a></li><li><a href="posiedzenia/"  >Posiedzenia</a></li><li><a href="galeria/"  >Galeria</a></li><li><a href="linki/"  >Linki</a></li><li><a href="kontakt/"  >Kontakt</a></li><li><a href="logowanie/"  >Logowanie</a></li></ul></li></ul>
+        </div>
+        <!-- zasadnicza treść strony -->
+        <div class="cr-col"> 
+          <!-- pasek na całość szerokości kolumny : ścieżka mapy strony -->
+          <div id="path-site">
+            <p style=""><a href="http://www.krput.edu.pl" onfocus="blurLink(this);"  >KRPUT</a></p>
+          </div>
+          <!-- środkowa kolumna strony -->
+          <div class="c-col"></div>
+          <!-- prawa kolumna strony -->
+          <div class="r-col"></div>
+        </div>
+      </div>
+      <div id="ft" class="clearfix">
+        <!-- Footer -->
+        <div class="to-left">
+          <p>All rights reserved © 2016 <strong>Akademia Górniczo-Hutnicza</strong></p>
+        </div>
+        <div class="to-right">
+          <ul id="foot-menu">
+            <li><a href="mailto:krput@agh.edu.pl">Kontakt</a></li>
+          </ul>
+          <ul id="socnet-menu">
+          
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+
+</body>
+</html>
