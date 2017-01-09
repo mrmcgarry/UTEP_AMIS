@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The source file 'KAIST_2014_new_logo.png' does not exist.
+</p>
+<!-- http://en.wikipedia.org/w/thumb_handler.php/e/eb/KAIST_2014_new_logo.png/220px-KAIST_2014_new_logo.png -->
+<!-- mw1294 -->
+
+</body>
+</html>
