@@ -127,6 +127,7 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		}
 		// Remove all event listeners binded by $.on() from all input elements.
 		//$('fieldset.vizField').off('input'); 
+		tufteLvl = $('#tuftelvlsel').val();
 		
 		document.getElementById("vizSelectGeo").selectedIndex=0;
 		currentlayer = 0; // Allows deletion.
@@ -141,7 +142,22 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 	
 		traffic = buildHash (jason,section,sectionLabel, coordinates, { getHistData: (histocheck)? true:false, appNames: (histocheck&&appcheck)? true:false });
 	
-		currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		switch(tufteLvl){
+			case "0":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "0" });
+				break;
+			case "1":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "1" });
+				break;
+			case "2":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "custom", colorScaleRange: ["#800080", "#29a329"], tuftelvl: "2" });
+				break;
+			default:
+				break;
+		}
+	
+		//currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		console.log(tufteLvl);
 		currentlayer.addTo(map);
 		//console.log("Called");
 	}
@@ -160,9 +176,29 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		appcheck = document.getElementById("appCheck").checked;
 
 		traffic = buildHash (jason,section,sectionLabel, coordinates, { getHistData: (histocheck)? true:false, appNames: (histocheck&&appcheck)? true:false });
-		currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		tufteLvl = $('#tuftelvlsel').val();
+		//currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		
+		switch(tufteLvl){
+			case "0":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "0" });
+				break;
+			case "1":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "1" });
+				break;
+			case "2":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "custom", colorScaleRange: ["#800080", "#29a329"], tuftelvl: "2" });
+				break;
+			default:
+				break;
+		}
 
 		currentlayer.addTo(map);
+		$('#tuftelvlsel').off();
+		$('#tuftelvlsel').on('change', function(){			// When the dropdown changes, the load button will be "clicked"
+			//console.log($('#dataSel').val());
+			$('#reloadButt').trigger('click');
+		});
 		$('#loadButt').off();
 		$('#loadButt').prop('disabled', false);
 		$("#loadButt").on("click", function(e){
@@ -222,7 +258,22 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		appcheck = document.getElementById("appCheck").checked;
 
 		traffic = buildHash (jason,section,sectionLabel, coordinates, { getHistData: (histocheck)? true:false, appNames: (histocheck&&appcheck)? true:false });
-		currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		tufteLvl = $('#tuftelvlsel').val();
+		//currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		
+		switch(tufteLvl){
+			case "0":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default" });
+				break;
+			case "1":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default" });
+				break;
+			case "2":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "custom", colorScaleRange: ["#800080", "#29a329"] });
+				break;
+			default:
+				break;
+		}
 
 		currentlayer.addTo(map);
 		$('#loadButt').off();
@@ -308,7 +359,22 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 			}
 		
 		traffic = buildHash (jason,section,sectionLabel, coordinates, { getHistData: (histocheck)? true:false, appNames: (histocheck&&appcheck)? true:false });
-		currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		tufteLvl = $('#tuftelvlsel').val();
+		//currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		
+		switch(tufteLvl){
+			case "0":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "0" });
+				break;
+			case "1":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "1" });
+				break;
+			case "2":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "custom", colorScaleRange: ["#800080", "#29a329"], tuftelvl: "2" });
+				break;
+			default:
+				break;
+		}
 		
 		currentlayer.addTo(map);
 		//console.log(currentlayer);
@@ -379,7 +445,23 @@ function makeTrafficLayer (data, map, prevdataset, countryCoordData, continentCo
 		appcheck = document.getElementById("appCheck").checked;
 
 		traffic = buildHash (jason,section,sectionLabel, coordinates, { getHistData: (histocheck)? true:false, appNames: (histocheck&&appcheck)? true:false });
-		currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		
+		tufteLvl = $('#tuftelvlsel').val();
+		//currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck });
+		
+		switch(tufteLvl){
+			case "0":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [7, 20], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "0" });
+				break;
+			case "1":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "default", tuftelvl: "1" });
+				break;
+			case "2":
+				currentlayer = drawTrafficPaths (traffic, map, { weightRange: [3, 10], diameterRange: [3, maxdiameter], getHistogram: histocheck, colorScale: "custom", colorScaleRange: ["#800080", "#29a329"], tuftelvl: "2" });
+				break;
+			default:
+				break;
+		}
 
 		currentlayer.addTo(map);
 		$('#loadButt').off();
@@ -546,19 +628,27 @@ function renderMap ( container, viewlat, viewlong, zoom ) {
 	
 	var containerid = "#"+container;
 	var mymap = L.map(container).setView([viewlat, viewlong], zoom);
+	var tuftelvl = $('#tuftelvlsel').val();
 	
 	/* Look at https://leaflet-extras.github.io/leaflet-providers/preview/ for tiles */
 	
-	/* L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(mymap); */ // Normal openstreetmap
-	L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(mymap); // Black and white openstreetmap
+	var colourMap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(mymap); // Normal openstreetmap
 	
-	/* $(containerid).css({
-		"height":"500px"
-	}); */
+	var greyscaleMap = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}); // Black and white openstreetmap
+	
+	$('#mapTypeCheckC').on('click', function(){
+		mymap.removeLayer(greyscaleMap);
+		colourMap.addTo(mymap);
+	});
+	
+	$('#mapTypeCheckG').on('click', function(){
+		mymap.removeLayer(colourMap);
+		greyscaleMap.addTo(mymap);
+	});
 	
 	$("#sizeSliderW").on("input", function(e){
 		var size = e.target.value;
@@ -595,14 +685,21 @@ function renderMap ( container, viewlat, viewlong, zoom ) {
 
 function drawTrafficPaths ( trafficData, map, options ) {
 	
-	console.log(trafficData);
+	//console.log(options);
+	//var tuftelvl = $('#tuftelvlsel').val;
+	
 	var weightScale = d3.scale.linear()
 		.domain([d3.min(trafficData, function (d){ return d.Bytes; }), d3.max(trafficData, function (d){ return d.Bytes; })]) 
-		.range([options.weightRange[0], options.weightRange[1]]),
+		.range([options.weightRange[0], options.weightRange[1]]);
 	
-	colourScale = d3.scale.category10(),
+	if (options.colorScale === "default")
+		var colourScale = d3.scale.category10();
+	else
+		var colourScale = d3.scale.ordinal()
+		.domain([d3.min(trafficData, function (d){ return d.Bytes; }), d3.max(trafficData, function (d){ return d.Bytes; })]) 
+		.range(options.colorScaleRange);
 	
-	diameterScale = d3.scale.log()
+	var diameterScale = d3.scale.log()
 		.domain([1, d3.max(trafficData, function (d){ return d.Bytes; })]) 
 		.range([options.diameterRange[0], options.diameterRange[1]]);
 	
@@ -670,8 +767,19 @@ function drawTrafficPaths ( trafficData, map, options ) {
 				var datax = e.target.options.data.SrcPort.Ports;
 				var datay = e.target.options.data.SrcPort.Bytes;
 				
-				plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay, "#vizContainer" );
-				
+				switch(options.tuftelvl){
+					case "0":
+						plotHistogramRaw( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					case "1":
+						plotHistogramRawLT( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					case "2":
+						plotHistogramRawFT( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					default:
+						break;
+				}
 			});
 			thisLayer.addLayer(circlesList[i]);
 		}
@@ -704,8 +812,19 @@ function drawTrafficPaths ( trafficData, map, options ) {
 					var datax = e.target.options.data.SrcPort.Ports;
 					var datay = e.target.options.data.SrcPort.Bytes;
 					
-					plotHistogramRaw( 0.1, "Port Number", "Bytes", datax, datay, "#vizContainer" );
-					
+					switch(options.tuftelvl){
+					case "0":
+						plotHistogramRaw( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					case "1":
+						plotHistogramRawLT( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					case "2":
+						plotHistogramRawFT( 0.1, "Port", "Bytes", datax, datay, "#vizContainer" );
+						break;
+					default:
+						break;
+					}
 				});
 				thisLayer.addLayer(polyLineList[i]);
 			}
@@ -782,7 +901,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 	i = 0;
 	while(trafficData[i].Y === 0)
 	{
-		if (trafficData[i].HashType === "Organization"){
+		if (trafficData[i].HashType === "Organization" && (options.tuftelvl === "1" || options.tuftelvl === "2")){
 			getmarker2(trafficData[i].DstAS);
 			if(_AvailMarkerIcon === 1){
 				console.log("Logo found!");
@@ -918,19 +1037,6 @@ function drawTrafficPaths ( trafficData, map, options ) {
 	
 	return thisLayer;
 
-}
-
-function getmarker(AS)						//function takes in AS# , Latititude, Longitude. in that order
-{													//function will look thru folder named images
-	var imgname= "../images/AS_images/"+AS+ ".png";				//concatonate to format (images/AS.png)
-	var marker = L.icon({
-		iconUrl:imgname,
-		iconSize:[30,35],							//adjust icon size [a,b]
-		iconAnchor:[15,35],						//anchor must be [a*.5,b]
-		popupAnchor:[0,-35]						//popup anchor is optional
-	})
-	
-	return marker;
 }
 
 function drawMatrix ( container, trafficData ) {
