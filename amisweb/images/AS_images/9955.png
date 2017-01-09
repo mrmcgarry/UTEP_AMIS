@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The source file 'Logo_for_DankookUniversity.png' does not exist.
+</p>
+<!-- http://en.wikipedia.org/w/thumb_handler.php/f/f9/Logo_for_DankookUniversity.png/220px-Logo_for_DankookUniversity.png -->
+<!-- mw1296 -->
+
+</body>
+</html>
