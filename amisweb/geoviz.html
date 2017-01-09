@@ -85,6 +85,15 @@
 			<label for="appCheck" title="Map data will be reloaded">Show application names?</label>
 			<input id="reloadButt" type="button" name="reload" value="Reload Map" title="Reload map data"></input>
 			<br/>
+			<label>Select Amount of Tufte:</label>
+			<select id="tuftelvlsel" name="tuftelvl">
+				<option value="0">No Tufte</option>
+				<option value="1">Soft Tufte</option>
+				<option value="2">Most Tufte</option>
+			</select>
+			<input type="radio" name="maptype" checked="true" id="mapTypeCheckC"></input><label for="maptype">Color Map</label>
+			<input type="radio" name="maptype" id="mapTypeCheckG"></input><label for="maptype">Greyscale Map</label>
+			<br/>
 			<label for="dataSelTxt">Dataset Selection:</label>
 			<select id="dataSel" name="dataSelect"></select>
 			<!-- <input type="text" name="dataSelTxt" id="dataSelTxt" placeholder="instrumentData2" value="instrumentData2"></input> -->
