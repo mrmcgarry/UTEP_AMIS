@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The source file 'Korea_Advanced_Institute_of_Science_and_Technology_logo.png' does not exist.
+</p>
+<!-- http://en.wikipedia.org/w/thumb_handler.php/d/d0/Korea_Advanced_Institute_of_Science_and_Technology_logo.png/220px-Korea_Advanced_Institute_of_Science_and_Technology_logo.png -->
+<!-- mw1295 -->
+
+</body>
+</html>
