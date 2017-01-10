@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The source file 'PLI-Logo.png' does not exist.
+</p>
+<!-- http://en.wikipedia.org/w/thumb_handler.php/e/e0/PLI-Logo.png/220px-PLI-Logo.png -->
+<!-- mw1294 -->
+
+</body>
+</html>
