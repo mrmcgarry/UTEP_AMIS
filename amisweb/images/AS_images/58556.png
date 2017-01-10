@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8" />
+<title>Error generating thumbnail</title>
+</head>
+<body>
+<h1>Error generating thumbnail</h1>
+<p>
+The source file 'Universal_Studios_logo.svg' does not exist.
+</p>
+<!-- http://commons.wikimedia.org/w/thumb_handler.php/9/92/Universal_Studios_logo.svg/640px-Universal_Studios_logo.svg.png -->
+<!-- mw1293 -->
+
+</body>
+</html>
