@@ -993,7 +993,7 @@ function drawTrafficPaths ( trafficData, map, options ) {
 			}
 		}
 		else{
-			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel).on('popupopen', function(e){
+			markerList[i] = new L.marker(pointsList[i][1], { riseOnHover: true, riseOffset: 200 }).bindPopup(trafficData[i].DstLabel+", AS Number: "+trafficData[i].DstAS).on('popupopen', function(e){
 				var polylines = bindPolyline(e),
 					offsetvalue;
 					
