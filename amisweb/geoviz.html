@@ -81,14 +81,12 @@
 			</select>
 			<input id="histCheck" type="checkbox" name="histCheck" checked="true" title="Map data will be reloaded"/>
 			<label for="histCheck" title="Map data will be reloaded">Generate histogram?</label>
-			<input id="appCheck" type="checkbox" name="appCheck" defaultChecked="false" title="Map data will be reloaded"/>
-			<label for="appCheck" title="Map data will be reloaded">Show application names?</label>
-			<input id="reloadButt" type="button" name="reload" value="Reload Map" title="Reload map data"></input>
+			<input id="reloadBtn" type="button" name="reload" value="Reload Map" title="Reload map data"></input>
 			<br/>
 			<label>Select Amount of Tufte:</label>
 			<select id="tuftelvlsel" name="tuftelvl">
 				<option value="0">No Tufte</option>
-				<option value="1">Soft Tufte</option>
+				<option value="1">Medium Tufte</option>
 				<option value="2">Most Tufte</option>
 			</select>
 			<input type="radio" name="maptype" checked="true" id="mapTypeCheckC"></input><label for="maptype">Color Map</label>
@@ -97,8 +95,8 @@
 			<label for="dataSelTxt">Dataset Selection:</label>
 			<select id="dataSel" name="dataSelect"></select>
 			<!-- <input type="text" name="dataSelTxt" id="dataSelTxt" placeholder="instrumentData2" value="instrumentData2"></input> -->
-			<input id="loadButt" type="button" name="load" value="Load Data" title="Load the indicated dataset into map"></input>
-			<input id="killButt" type="button" name="clear" value="Clear Map" title="Clears map from all data"></input>
+			<input id="loadBtn" type="button" name="load" value="Load Data" title="Load the indicated dataset into map"></input>
+			<input id="killBtn" type="button" name="clear" value="Clear Map" title="Clears map from all data"></input>
 			<br/>
 			<label for="mapWSize">Adjust map width :</label>
 			<input id="sizeSliderW" type="range" name="mapWSize" max="100" value="100"/>
@@ -107,7 +105,9 @@
 			<label for="mapHSize">Adjust map height:</label>
 			<input id="sizeSliderH" type="range" name="mapHSize" max="1000" value="1000"/>
 			<input id="sizeInputH" type="number" name="mapHSize" max="500" value="1000"/><label for="mapHSize">pixels</label>
-			<p id="datavizMsg"></p>
+			<br/>
+			<br/>
+			<div id="datavizMsg"></div>
 			<!-- Container for visualization -->
 			<div id="mapContainer"></div>
 			<br/>
