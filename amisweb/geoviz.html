@@ -83,11 +83,11 @@
 			<label for="histCheck" title="Map data will be reloaded">Generate histogram?</label>
 			<input id="reloadBtn" type="button" name="reload" value="Reload Map" title="Reload map data"></input>
 			<br/>
-			<label>Select Amount of Tufte:</label>
+			<label>Tufte Improvement Level:</label>
 			<select id="tuftelvlsel" name="tuftelvl">
-				<option value="0">No Tufte</option>
-				<option value="1">Medium Tufte</option>
-				<option value="2">Most Tufte</option>
+				<option value="0">No Tufte Improvements</option>
+				<option value="1">Moderate Tufte Improvements</option>
+				<option value="2">Significant Tufte Improvements</option>
 			</select>
 			<input type="radio" name="maptype" checked="true" id="mapTypeCheckC"></input><label for="maptype">Color Map</label>
 			<input type="radio" name="maptype" id="mapTypeCheckG"></input><label for="maptype">Greyscale Map</label>
@@ -97,6 +97,7 @@
 			<!-- <input type="text" name="dataSelTxt" id="dataSelTxt" placeholder="instrumentData2" value="instrumentData2"></input> -->
 			<input id="loadBtn" type="button" name="load" value="Load Data" title="Load the indicated dataset into map"></input>
 			<input id="killBtn" type="button" name="clear" value="Clear Map" title="Clears map from all data"></input>
+			<p id="dataSelStat"></p>
 			<br/>
 			<label for="mapWSize">Adjust map width :</label>
 			<input id="sizeSliderW" type="range" name="mapWSize" max="100" value="100"/>
@@ -122,7 +123,7 @@
 	</main>
 
 	<footer>
-		<p>This website was created by Dr. Michael P. McGarry, <span class="currentYear">2015</span>
+		<p>This website was created by Dr. Michael P. McGarry and Rodrigo Ibáñez Alcalá, <span class="currentYear">2015</span>
 		<img src="images/utep_logo.png" alt="UTEP logo" width="50"/></p>
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
